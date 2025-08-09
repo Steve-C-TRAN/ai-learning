@@ -1,0 +1,57 @@
+<!-- app/templates/index.html -->
+
+{% extends "base.html" %}
+{% block content %}
+
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div class="text-center mb-10">
+    <h1 class="text-4xl font-bold">C-TRAN AI Learning</h1>
+    <p class="text-slate-300 mt-2">Self-guided training for business leaders.</p>
+  </div>
+
+  <div id="modules-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for m in modules %}
+    <a href="/module/{{ m.slug }}" class="group block rounded-xl p-6 glass-effect border border-slate-700/50 hover:border-slate-600/60 transition-all">
+      <div class="flex items-start justify-between">
+        <h2 class="text-xl font-semibold group-hover:text-white">{{ m.title }}</h2>
+        <div class="w-8 h-8 rounded-full border-2 border-slate-600 flex items-center justify-center" data-progress="{{ m.slug }}">
+          <span class="text-xs text-slate-400">0%</span>
+        </div>
+      </div>
+      <p class="text-slate-300 mt-2 text-sm">{{ m.summary }}</p>
+      <div class="mt-4 text-cyan-300 text-sm">Open →</div>
+    </a>
+    {% endfor %}
+  </div>
+
+  <div class="mt-10 text-sm text-slate-400 text-center">
+    Progress is stored locally (cookie) and anonymously.
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+(async function() {
+  const sessionId = getOrSetSessionId();
+
+  try {
+    const res = await fetch(`/api/progress?session_id=${encodeURIComponent(sessionId)}`);
+    const payload = await res.json();
+    if (payload.status === 'success') {
+      const data = payload.data || {};
+      document.querySelectorAll('[data-progress]').forEach(el => {
+        const slug = el.getAttribute('data-progress');
+        const row = data[slug];
+        const percent = row && row.completed ? 100 : 0;
+        el.querySelector('span').textContent = percent + '%';
+        el.classList.toggle('border-emerald-500', percent === 100);
+      });
+    }
+  } catch (e) {
+    console.warn('Progress fetch failed', e);
+  }
+})();
+</script>
+{% endblock %}
