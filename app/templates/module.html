@@ -1,17 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-  <div id="module-meta" data-slug="{{ module.slug }}" {% if next_module %}data-next-url="{{ url_for('main.module_view', slug=next_module.slug) }}"{% endif %}></div>
+  <div id="module-meta"
+       data-slug="{{ module.slug }}"
+       {% if next_module %}
+         {% if course %}
+           data-next-url="{{ url_for('main.course_module_view', course_slug=course.slug, module_slug=next_module.slug) }}"
+         {% else %}
+           data-next-url="{{ url_for('main.module_view', slug=next_module.slug) }}"
+         {% endif %}
+       {% endif %}
+       {% if course %}data-course-url="{{ url_for('main.course_view', course_slug=course.slug) }}"{% endif %}
+  ></div>
   <div class="mb-8 mt-6 flex items-center justify-between">
+    {% if course %}
+    <a href="{{ url_for('main.course_view', course_slug=course.slug) }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium shadow-sm bg-sky-600 hover:bg-sky-700 text-white">
+      <span>←</span>
+      <span>Back to Course</span>
+    </a>
+    {% else %}
     <a href="/" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium shadow-sm bg-sky-600 hover:bg-sky-700 text-white">
       <span>←</span>
       <span>Back to Modules</span>
     </a>
+    {% endif %}
     {% if next_module %}
-    <a href="/module/{{ next_module.slug }}" class="next-module-link inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium shadow-sm bg-emerald-600 hover:bg-emerald-700 text-white">
-      <span>Next Module</span>
-      <span>→</span>
-    </a>
+      {% if course %}
+      <a href="{{ url_for('main.course_module_view', course_slug=course.slug, module_slug=next_module.slug) }}" class="next-module-link inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium shadow-sm bg-emerald-600 hover:bg-emerald-700 text-white">
+        <span>Next Module</span>
+        <span>→</span>
+      </a>
+      {% else %}
+      <a href="/module/{{ next_module.slug }}" class="next-module-link inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium shadow-sm bg-emerald-600 hover:bg-emerald-700 text-white">
+        <span>Next Module</span>
+        <span>→</span>
+      </a>
+      {% endif %}
     {% endif %}
   </div>
 
@@ -57,15 +81,29 @@
 
   <!-- Bottom navigation buttons -->
   <div class="mt-10 flex items-center justify-between">
+    {% if course %}
+    <a href="{{ url_for('main.course_view', course_slug=course.slug) }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium shadow-sm bg-sky-600 hover:bg-sky-700 text-white">
+      <span>←</span>
+      <span>Back to Course</span>
+    </a>
+    {% else %}
     <a href="/" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium shadow-sm bg-sky-600 hover:bg-sky-700 text-white">
       <span>←</span>
       <span>Back to Modules</span>
     </a>
+    {% endif %}
     {% if next_module %}
-    <a href="/module/{{ next_module.slug }}" class="next-module-link inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium shadow-sm bg-emerald-600 hover:bg-emerald-700 text-white">
-      <span>Next Module</span>
-      <span>→</span>
-    </a>
+      {% if course %}
+      <a href="{{ url_for('main.course_module_view', course_slug=course.slug, module_slug=next_module.slug) }}" class="next-module-link inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium shadow-sm bg-emerald-600 hover:bg-emerald-700 text-white">
+        <span>Next Module</span>
+        <span>→</span>
+      </a>
+      {% else %}
+      <a href="/module/{{ next_module.slug }}" class="next-module-link inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium shadow-sm bg-emerald-600 hover:bg-emerald-700 text-white">
+        <span>Next Module</span>
+        <span>→</span>
+      </a>
+      {% endif %}
     {% endif %}
   </div>
 </div>
@@ -79,6 +117,7 @@
   const slug = metaEl?.dataset?.slug || '';
   const sessionId = getOrSetSessionId();
   const nextModuleUrl = metaEl?.dataset?.nextUrl || null;
+  const courseUrl = metaEl?.dataset?.courseUrl || null;
 
   // Record view event
   fetch('/api/event', {
@@ -121,7 +160,7 @@
     if (!nextBtn) return;
 
     if (quizCompleted) {
-      // Mark complete and navigate (or back to home if last)
+      // Mark complete and navigate (or back to course/ home if last)
       try {
         await fetch('/api/progress', {
           method: 'POST',
@@ -129,7 +168,7 @@
           body: JSON.stringify({ session_id: sessionId, module_slug: slug, completed: true })
         });
       } catch {}
-      window.location.href = nextModuleUrl || '/';
+      window.location.href = nextModuleUrl || courseUrl || '/';
       return;
     }
 

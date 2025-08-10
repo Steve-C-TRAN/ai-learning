@@ -18,6 +18,18 @@ class Module:
     resources: List[Dict[str, str]] = field(default_factory=list)
     guardrails: List[str] = field(default_factory=list)
 
+@dataclass
+class CourseMeta:
+    slug: str
+    title: str
+    summary: str
+    duration: str
+    level: str
+    hero_image: str
+    thumbnail: str
+    og_image: str
+    tags: List[str] = field(default_factory=list)
+
 
 def get_modules() -> List[Module]:
     return [
@@ -73,13 +85,6 @@ def get_modules() -> List[Module]:
                         "<li><em>Limits:</em> can hallucinate, reflect biases, require clear instructions and verification</li>"
                         "</ul>"
                     ),
-                ),
-                ModuleSection(
-                    title="Dive Deeper: Enterprise AI Strategy and CEO Leadership (McKinsey)",
-                    content="""
-                    <p>In this talk, McKinsey's head of CEO services explores how senior leaders can navigate the rapidly evolving AI landscape, make smart trade-offs, and integrate AI into long-term strategy. This video is ideal for executives who want to lead AI adoption effectively.</p>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/uTRKdCY4HdE" title="Enterprise AI Strategy and CEO Leadership - McKinsey" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    """,
                 ),
             ],
             resources=[
@@ -290,6 +295,23 @@ def get_modules() -> List[Module]:
                 "Treat answers as guidance; confirm critical decisions with policy owners.",
             ],
         ),
+        Module(
+            slug="leadership-insights",
+            title="Leadership Insights",
+            summary="Executive perspectives on AI strategy, governance, and responsible adoption.",
+            sections=[
+                ModuleSection(
+                    title="Enterprise AI Strategy and CEO Leadership (McKinsey)",
+                    content="""
+                    <p>In this talk, McKinsey's head of CEO services explores how senior leaders can navigate the rapidly evolving AI landscape, make smart trade-offs, and integrate AI into long-term strategy. This video is ideal for executives who want to lead AI adoption effectively.</p>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/uTRKdCY4HdE" title="Enterprise AI Strategy and CEO Leadership - McKinsey" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    """,
+                ),
+            ],
+            resources=[
+                {"label": "McKinsey Article Hub", "url": "https://www.mckinsey.com/featured-insights/artificial-intelligence"}
+            ],
+        ),
     ]
 
 
@@ -298,3 +320,17 @@ def get_module(slug: str) -> Optional[Module]:
         if m.slug == slug:
             return m
     return None
+
+
+def get_course_meta() -> CourseMeta:
+    return CourseMeta(
+        slug="course-2",
+        title="Applied AI: Delivery Models & Leadership",
+        summary="Practical delivery models, patterns, and leadership insights for responsible adoption.",
+        duration="~45–60 minutes",
+        level="Intermediate",
+        hero_image="/static/images/courses/_defaults/hero.svg",
+        thumbnail="/static/images/courses/_defaults/thumb.svg",
+        og_image="/static/images/courses/_defaults/hero.svg",
+        tags=["Delivery", "Governance", "Leadership"],
+    )

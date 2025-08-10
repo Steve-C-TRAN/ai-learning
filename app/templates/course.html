@@ -1,0 +1,145 @@
+<!-- app/templates/index.html -->
+
+{% extends "base.html" %}
+{% block content %}
+
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <a href="/" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium shadow-sm bg-sky-600 hover:bg-sky-700 text-white">
+    <span>←</span>
+    <span>Back to Courses</span>
+  </a>
+
+  <!-- Hero / Header -->
+  <div class="mt-6 overflow-hidden rounded-2xl border border-slate-700/50">
+    <div class="relative h-48 bg-slate-900">
+      {% set hero = course.meta.hero_image if course.meta and course.meta.hero_image else '/static/images/courses/_defaults/thumb.svg' %}
+      <img src="{{ hero }}" alt="{{ course.meta.title if course.meta else 'Course' }}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='/static/images/courses/_defaults/thumb.svg'">
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent"></div>
+    </div>
+    <div class="p-6 bg-slate-900/60 backdrop-blur">
+      <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+        <div>
+          <h1 class="text-3xl font-bold">{{ course.meta.title if course.meta else course.slug }}</h1>
+          {% if course.meta and course.meta.summary %}
+          <p class="text-slate-300 mt-2 max-w-3xl">{{ course.meta.summary }}</p>
+          {% endif %}
+          <div class="flex items-center gap-2 mt-3">
+            {% if course.meta and course.meta.level %}<span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300">{{ course.meta.level }}</span>{% endif %}
+            {% if course.meta and course.meta.duration %}<span class="text-[11px] text-slate-400">{{ course.meta.duration }}</span>{% endif %}
+            {% if course.meta and course.meta.tags %}
+              {% for t in course.meta.tags %}
+                <span class="text-[10px] px-2 py-0.5 rounded bg-purple-600/20 border border-purple-600/30 text-purple-200">{{ t }}</span>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+        {% if course.modules and course.modules|length %}
+        <div class="flex-shrink-0">
+          <a href="{{ url_for('main.course_module_view', course_slug=course.slug, module_slug=course.modules[0].slug) }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium shadow-sm bg-emerald-600 hover:bg-emerald-700 text-white">
+            Start Course
+            <span>→</span>
+          </a>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Progress -->
+      <div id="course-progress" data-course="{{ course.slug }}" data-total="{{ course.modules|length if course.modules else 0 }}" class="mt-6">
+        <div class="flex items-center justify-between text-sm text-slate-300">
+          <span>Progress</span>
+          <span id="course-progress-label">0/{{ course.modules|length if course.modules else 0 }} complete</span>
+        </div>
+        <div class="mt-2 h-2 w-full rounded-full bg-slate-800 border border-slate-700/60 overflow-hidden">
+          <div id="course-progress-bar" class="h-full bg-emerald-500" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modules list -->
+  <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+    {% for m in course.modules %}
+    <div class="group rounded-xl overflow-hidden glass-effect border border-slate-700/50 hover:border-slate-600/60 transition-all" data-module-card data-module-slug="{{ m.slug }}">
+      <div class="p-5">
+        <div class="flex items-start justify-between gap-3">
+          <h2 class="text-xl font-semibold group-hover:text-white">{{ m.title }}</h2>
+          <span class="hidden text-[10px] px-2 py-0.5 rounded bg-emerald-700/30 border border-emerald-600/40 text-emerald-200" data-complete-pill>Completed</span>
+        </div>
+        {% if m.summary %}
+        <p class="text-slate-300 mt-2 text-sm">{{ m.summary }}</p>
+        {% endif %}
+        <div class="mt-4 flex items-center justify-between">
+          <a href="{{ url_for('main.course_module_view', course_slug=course.slug, module_slug=m.slug) }}" class="inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200" data-cta>
+            Start
+            <span class="transition-transform group-hover:translate-x-0.5">→</span>
+          </a>
+          <div class="text-xs text-slate-400">
+            <span data-status-text>Not started</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="mt-10 text-sm text-slate-400 text-center">
+    Progress is tracked locally and anonymously.
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function() {
+  const progressRoot = document.getElementById('course-progress');
+  if (!progressRoot) return;
+
+  const courseSlug = progressRoot.dataset.course;
+  const total = parseInt(progressRoot.dataset.total || '0', 10);
+  const bar = document.getElementById('course-progress-bar');
+  const label = document.getElementById('course-progress-label');
+
+  const sessionId = getOrSetSessionId();
+
+  function updateUI(completedCount, completedSlugs) {
+    const pct = total ? Math.round((completedCount / total) * 100) : 0;
+    if (bar) bar.style.width = pct + '%';
+    if (label) label.textContent = `${completedCount}/${total} complete`;
+
+    document.querySelectorAll('[data-module-card]').forEach(card => {
+      const slug = card.getAttribute('data-module-slug');
+      const pill = card.querySelector('[data-complete-pill]');
+      const cta = card.querySelector('[data-cta]');
+      const status = card.querySelector('[data-status-text]');
+      const isDone = completedSlugs.has(slug);
+      if (isDone) {
+        pill?.classList.remove('hidden');
+        status && (status.textContent = 'Completed');
+        if (cta) cta.textContent = 'Review';
+      } else {
+        pill?.classList.add('hidden');
+        status && (status.textContent = 'Not started');
+        if (cta) cta.textContent = 'Start';
+      }
+    });
+  }
+
+  fetch(`/api/progress?session_id=${encodeURIComponent(sessionId)}`)
+    .then(r => r.json())
+    .then(payload => {
+      const data = (payload && payload.data) || {};
+      const moduleCards = Array.from(document.querySelectorAll('[data-module-card]'));
+      const slugs = moduleCards.map(el => el.getAttribute('data-module-slug'));
+      const completedSlugs = new Set();
+      slugs.forEach(s => {
+        if (data[s]?.completed) completedSlugs.add(s);
+      });
+      updateUI(completedSlugs.size, completedSlugs);
+    })
+    .catch(() => {
+      updateUI(0, new Set());
+    });
+})();
+</script>
+{% endblock %}

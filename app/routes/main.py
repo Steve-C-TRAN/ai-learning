@@ -5,6 +5,7 @@ from datetime import datetime
 
 from app.content.modules import get_modules, get_module
 from app.content.quizzes import get_quiz, get_question
+from app.content.loader import discover_courses, get_course_by_slug, list_course_summaries
 from app.models.progress import ModuleProgress, ProgressEvent
 from app.models.quiz import QuizAttempt
 from app.utils.errors import json_error_response
@@ -13,8 +14,11 @@ main = Blueprint("main", __name__)
 
 @main.route("/")
 def index():
+    # Temporarily keep current behavior until templates are updated
+    # but also pass discovered courses for the upcoming landing page.
     modules = get_modules()
-    return render_template("index.html", modules=modules)
+    courses = list_course_summaries()
+    return render_template("index.html", modules=modules, courses=courses)
 
 @main.route("/module/<slug>")
 def module_view(slug: str):
@@ -33,6 +37,37 @@ def module_view(slug: str):
             break
 
     return render_template("module.html", module=module, questions=questions, next_module=next_module)
+
+# New course routes (will be hooked up in Step 3 with templates)
+@main.route("/courses/<course_slug>")
+def course_view(course_slug: str):
+    course = get_course_by_slug(course_slug)
+    if not course:
+        return json_error_response("Course not found", 404)
+    # Log event; reuse existing event endpoint shape
+    # Optionally: write a DB event here directly if desired
+    return render_template("course.html", course=course)
+
+@main.route("/courses/<course_slug>/modules/<module_slug>")
+def course_module_view(course_slug: str, module_slug: str):
+    course = get_course_by_slug(course_slug)
+    if not course:
+        return json_error_response("Course not found", 404)
+    modules = course.get("modules") or []
+    mod = next((m for m in modules if getattr(m, "slug", None) == module_slug), None)
+    if not mod:
+        return json_error_response("Module not found", 404)
+
+    # Determine next module within this course
+    next_module = None
+    for i, m in enumerate(modules):
+        if getattr(m, "slug", None) == module_slug:
+            if i + 1 < len(modules):
+                next_module = modules[i + 1]
+            break
+
+    questions = get_quiz(module_slug)
+    return render_template("module.html", module=mod, questions=questions, next_module=next_module, course=course)
 
 # Health and utility endpoints
 @main.route("/api/health")

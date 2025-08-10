@@ -18,6 +18,18 @@ class Module:
     resources: List[Dict[str, str]] = field(default_factory=list)
     guardrails: List[str] = field(default_factory=list)
 
+@dataclass
+class CourseMeta:
+    slug: str
+    title: str
+    summary: str
+    duration: str
+    level: str
+    hero_image: str
+    thumbnail: str
+    og_image: str
+    tags: List[str] = field(default_factory=list)
+
 
 def get_modules() -> List[Module]:
     return [
@@ -62,7 +74,7 @@ def get_modules() -> List[Module]:
                     ),
                 ),
                 ModuleSection(
-                    title="AI vs ML vs Generative AI vs LLMs",
+                    title="Definitions",
                     content=(
                         "<p><strong>Artificial Intelligence (AI)</strong> is the broad field of making computers perform tasks that typically require human intelligence (reasoning, planning, perception, language).</p>"
                         "<p><strong>Machine Learning (ML)</strong> is a subset of AI focused on learning patterns from data to make predictions or decisions without being explicitly programmed for every rule.</p>"
@@ -74,13 +86,6 @@ def get_modules() -> List[Module]:
                         "</ul>"
                     ),
                 ),
-                ModuleSection(
-                    title="Dive Deeper: Enterprise AI Strategy and CEO Leadership (McKinsey)",
-                    content="""
-                    <p>In this talk, McKinsey's head of CEO services explores how senior leaders can navigate the rapidly evolving AI landscape, make smart trade-offs, and integrate AI into long-term strategy. This video is ideal for executives who want to lead AI adoption effectively.</p>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/uTRKdCY4HdE" title="Enterprise AI Strategy and CEO Leadership - McKinsey" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    """,
-                ),
             ],
             resources=[
                 {"label": "C-TRAN Website", "url": "https://www.c-tran.com/"},
@@ -89,7 +94,7 @@ def get_modules() -> List[Module]:
         Module(
             slug="ai-eras",
             title="AI Eras",
-            summary="From rules and classic ML to agentic systems — how we got here, why it’s accelerating, and what it means for your team.",
+            summary="From rules and classic ML to agentic systems.",
             sections=[
                 ModuleSection(
                     title="From Rules to Learning: A Brief Timeline",
@@ -139,36 +144,6 @@ def get_modules() -> List[Module]:
                     """,
                 ),
                 ModuleSection(
-                    title="The Agentic Era (Today)",
-                    content="""
-                    <p>Modern systems do more than chat — they <em>act</em> by calling tools, browsing data, and executing steps toward a goal.</p>
-                    <ul class="list-disc ml-6">
-                      <li><strong>Tool use:</strong> call functions, query databases, trigger workflows.</li>
-                      <li><strong>Planning:</strong> break problems into steps; reflect and iterate.</li>
-                      <li><strong>Multimodal:</strong> text + images (and increasingly audio/video) in a single workflow.</li>
-                      <li><strong>Human + AI teamwork:</strong> draft, then route to people for review/approval.</li>
-                    </ul>
-                    <p class="mt-3 text-slate-300">Transit ideas:</p>
-                    <ul class="list-disc ml-6">
-                      <li>Draft rider alerts; a tool step posts to channels after supervisor approval.</li>
-                      <li>Summarize daily ops reports and flag anomalies for supervisors.</li>
-                      <li>Answer common staff questions using policy docs + search connectors.</li>
-                    </ul>
-                    """,
-                ),
-                ModuleSection(
-                    title="Why Now? The Acceleration",
-                    content="""
-                    <ul class="list-disc ml-6">
-                      <li><strong>Scale:</strong> more compute + improved training techniques.</li>
-                      <li><strong>Data:</strong> broader corpora and domain adaptation options.</li>
-                      <li><strong>Architecture:</strong> instruction tuning, retrieval, tool-use, memory patterns.</li>
-                      <li><strong>Ecosystem:</strong> APIs, plugins, and copilot-style interfaces everywhere.</li>
-                      <li><strong>Economics:</strong> costs dropping; on-device models improving.</li>
-                    </ul>
-                    """,
-                ),
-                ModuleSection(
                     title="Myths vs. Reality",
                     content="""
                     <ul class="list-disc ml-6">
@@ -203,7 +178,7 @@ def get_modules() -> List[Module]:
                 ModuleSection(
                     title="What’s Next?",
                     content="""
-                    <p>Expect more autonomy and self-improvement — but value comes from safe, measurable pilots that help people, not hype.</p>
+                    <p>Software engineering productivity is increasing rapidly, more autonomous agents will be capabale of self-improvement.</p>
                     """,
                 ),
             ],
@@ -232,7 +207,7 @@ def get_modules() -> List[Module]:
                     """,
                 ),
                 ModuleSection(
-                    title="How They Work (the 60‑second version)",
+                    title="How They Work",
                     content="""
                     <ul class="list-disc ml-6">
                       <li><strong>Tokens:</strong> Text is broken into tokens; the model predicts the next token given context.</li>
@@ -374,13 +349,6 @@ def get_modules() -> List[Module]:
                     </ul>
                     """,
                 ),
-                ModuleSection(
-                    title="Dive Deeper: The AI Revolution Is Underhyped (Eric Schmidt, TED)",
-                    content="""
-                    <p>Former Google CEO Eric Schmidt explains why AI’s potential is far greater than most people realize, highlighting transformative opportunities and the need for bold, informed leadership.</p>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/id4YRO7G0wE" title="The AI Revolution Is Underhyped - Eric Schmidt - TED Talk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    """,
-                ),
             ],
             resources=[
                 {"label": "OpenAI", "url": "https://openai.com"},
@@ -395,12 +363,143 @@ def get_modules() -> List[Module]:
         Module(
             slug="use-foundation-models",
             title="Ways to Use Foundation Models",
-            summary="Patterns you can apply immediately to save time and improve quality.",
+            summary="Practical, LLM‑centered patterns you can apply immediately to save time and improve quality.",
             sections=[
-                ModuleSection("Summarization & Q&A", "Condense documents, highlight key points, answer targeted questions."),
-                ModuleSection("Classification & Routing", "Tag tickets, triage requests, route workflows automatically."),
-                ModuleSection("Generation", "Draft emails, reports, plans, and code with guidance and structure."),
-                ModuleSection("Analysis & Reports", "Assist with data interpretation and quick narrative reports."),
+                ModuleSection(
+                    title="How We Use LLMs in Practice (simple workflow)",
+                    content="""
+                    <div class="bg-slate-800/60 border border-slate-700 rounded p-4">
+                      <p>These patterns assume we’re using <strong>LLMs</strong> (language foundation models) with our own context.</p>
+                      <ol class="list-decimal ml-6 space-y-1 mt-2">
+                        <li><strong>Draft:</strong> Start with bullet points or a rough paragraph in your voice.</li>
+                        <li><strong>Context:</strong> Paste key snippets from policies, emails, spreadsheets, or link to docs and state what matters.</li>
+                        <li><strong>Ask:</strong> Tell the LLM the <em>purpose, audience, tone, length</em>, and the <em>format</em> you want (bullets, memo, table, JSON).</li>
+                        <li><strong>Organize & enhance:</strong> Have it structure the content, fix gaps, propose options, and format consistently.</li>
+                        <li><strong>Review:</strong> Verify facts, adjust tone, and finalize. Treat output as a draft.</li>
+                      </ol>
+                    </div>
+                    """,
+                ),
+                ModuleSection(
+                    title="Summarization & Q&A (with optional retrieval)",
+                    content="""
+                    <ul class="list-disc ml-6">
+                      <li><em>What it is:</em> Turn long material into key points; ask targeted questions.</li>
+                      <li><em>Inputs:</em> meeting notes, emails, policies, web pages; optionally add retrieval over your docs.</li>
+                      <li><em>Outputs:</em> bullet summaries, executive briefs, FAQs, next‑step lists.</li>
+                      <li><em>Tips:</em> Specify audience and length; require citations when accuracy matters.</li>
+                    </ul>
+                    """,
+                ),
+                ModuleSection(
+                    title="Drafting & Generation (you start, LLM elevates)",
+                    content="""
+                    <p>Begin with your ideas and context; ask the LLM to produce a clear, audience‑appropriate draft.</p>
+                    <ul class="list-disc ml-6">
+                      <li><em>Use cases:</em> emails, reports, job aids, policy updates, announcements.</li>
+                      <li><em>Process:</em> provide your bullets + relevant excerpts; ask for structure, clarity, and tone; iterate.</li>
+                      <li><em>Formatting:</em> request headings, lists, tables, and consistent style (AP, plain language, etc.).</li>
+                    </ul>
+                    """,
+                ),
+                ModuleSection(
+                    title="Transformation & Rewrite",
+                    content="""
+                    <ul class="list-disc ml-6">
+                      <li>Change tone (formal, friendly, neutral), length (50/150/300 words), or reading level (Plain Language).</li>
+                      <li>Translate between languages or convert bullet points into narrative (and vice versa).</li>
+                      <li>Turn dense text into checklists, action plans, or slides outlines.</li>
+                    </ul>
+                    """,
+                ),
+                ModuleSection(
+                    title="Extraction & Structuring",
+                    content="""
+                    <ul class="list-disc ml-6">
+                      <li>Pull fields from emails, PDFs, or notes and output as JSON, CSV, or a table (e.g., dates, routes, contacts).</li>
+                      <li>Normalize names, addresses, or IDs; validate formats with simple rules in the prompt.</li>
+                    </ul>
+                    """,
+                ),
+                ModuleSection(
+                    title="Classification & Routing",
+                    content="""
+                    <ul class="list-disc ml-6">
+                      <li>Tag messages (topic, urgency, department) and route to the right queue or person.</li>
+                      <li>Apply policy labels or sensitivity flags based on brief criteria you provide.</li>
+                    </ul>
+                    """,
+                ),
+                ModuleSection(
+                    title="Analysis & Quick Reports",
+                    content="""
+                    <ul class="list-disc ml-6">
+                      <li>Ask for patterns and insights from qualitative notes or light tabular data (paste snippets or summaries).</li>
+                      <li>Generate a short narrative with key findings, risks, and recommended next steps.</li>
+                    </ul>
+                    """,
+                ),
+                ModuleSection(
+                    title="Formatting & Packaging",
+                    content="""
+                    <ul class="list-disc ml-6">
+                      <li>Request output as an email, memo, SOP, table, Markdown, or JSON schema you define.</li>
+                      <li>Enforce sections and headings; ask for a one‑page and an executive 5‑bullet version.</li>
+                      <li>Downloadable formats via tools/integrations: Word (.docx), PowerPoint (.pptx), Excel/CSV (.xlsx/.csv), and images (.png/.svg). Ask the LLM to structure content precisely so it can be exported to these files.</li>
+                      <li>Tips: for documents/slides, specify slide titles and bullet counts; for spreadsheets, specify column names and sample rows; for images, request size/aspect and alt text. If needed, ask for Markdown/HTML/CSV that downstream scripts can convert to files.</li>
+                    </ul>
+                    """,
+                ),
+                ModuleSection(
+                    title="A Reusable Prompt Pattern",
+                    content="""
+                    <div class="bg-slate-800/60 border border-slate-700 rounded p-4">
+                      <ul class="list-disc ml-6">
+                        <li><strong>Role & task:</strong> “You are a comms specialist. Draft a one‑page rider notice.”</li>
+                        <li><strong>Context:</strong> paste key excerpts, numbers, constraints (don’t include PII).</li>
+                        <li><strong>Requirements:</strong> audience, tone, length, must‑include points, sources if needed.</li>
+                        <li><strong>Format:</strong> bullets/table/memo/JSON; provide a tiny example when possible.</li>
+                        <li><strong>Review:</strong> ask for uncertainties and a checklist for human verification.</li>
+                      </ul>
+                    </div>
+                    """,
+                ),
+                ModuleSection(
+                    title="Advanced: Ideate → Plan → Create",
+                    content="""
+                    <p>This advanced, <em>agentic</em> workflow uses an LLM to first <strong>ideate</strong> options, then <strong>plan</strong> the work, then <strong>create</strong> the deliverable — with tight human review in between.</p>
+                    <figure class="space-y-2 mt-2">
+                      <div class="mx-auto max-w-3xl md:max-w-5xl px-2 flex justify-center">
+                        <a href="/static/images/ideate_plan_create.svg" target="_blank" rel="noopener" title="Open full-size">
+                          <img src="/static/images/ideate_plan_create.svg" alt="Ideate, Plan, Create workflow diagram" class="block w-auto max-w-full h-auto object-contain max-h-[70vh] mx-auto rounded border border-slate-700/50 bg-slate-900" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'h-40 flex items-center justify-center text-xs bg-slate-800 rounded border border-slate-700/50',textContent:'Workflow diagram placeholder'}) )">
+                        </a>
+                      </div>
+                      <figcaption class="text-xs md:text-sm text-slate-400 text-center">Workflow: generate options → choose and plan → draft and refine with human review.</figcaption>
+                    </figure>
+                    <div class="mt-3 grid md:grid-cols-2 gap-4">
+                      <div class="bg-slate-800/50 border border-slate-700 rounded p-3">
+                        <h4 class="font-semibold">How to run it</h4>
+                        <ol class="list-decimal ml-6 space-y-1">
+                          <li><strong>Ideate:</strong> Ask for 3–5 approaches with pros/cons, risks, and required inputs.</li>
+                          <li><strong>Plan:</strong> Pick one; ask for objectives, stakeholders, steps, timelines, and success criteria.</li>
+                          <li><strong>Create:</strong> Provide your draft/notes and key excerpts; ask for a first draft in the required format.</li>
+                          <li><strong>Review:</strong> Have the LLM list uncertainties and assumptions; you edit and confirm sources.</li>
+                          <li><strong>Polish:</strong> Request tone, length, and formatting fixes (headings, tables, lists, alt text).</li>
+                        </ol>
+                      </div>
+                      <div class="bg-slate-800/50 border border-slate-700 rounded p-3">
+                        <h4 class="font-semibold">Prompting tips</h4>
+                        <ul class="list-disc ml-6 space-y-1">
+                          <li>State <em>audience</em>, <em>purpose</em>, and <em>constraints</em> (word count, style, must‑include points).</li>
+                          <li>Paste relevant excerpts; for accuracy, ask for citations or quotes from your snippets.</li>
+                          <li>Ask for a checklist you can verify before sending or publishing.</li>
+                          <li>For packaging, request specific output types (memo, table, Markdown, JSON) for easy export.</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <p class="mt-3 text-slate-300"><strong>When to use:</strong> important communications, policy updates, proposals, or plans that benefit from options, structure, and iteration — with humans in the loop.</p>
+                    """,
+                ),
             ],
         ),
         Module(
@@ -408,10 +507,74 @@ def get_modules() -> List[Module]:
             title="Transit Use Cases",
             summary="C-TRAN-aligned applications across service and operations.",
             sections=[
-                ModuleSection("Customer Experience", "Faster, more accurate rider answers and tailored info."),
-                ModuleSection("Rider Support", "Service alerts, trip planning assistance, accessibility prompts."),
-                ModuleSection("Scheduling Support", "Pattern insights and suggestions based on history and conditions."),
-                ModuleSection("IT End User Support", "Troubleshooting tips and task walkthroughs for staff."),
+                ModuleSection(
+                    title="Customer Experience",
+                    content="""
+                    <div class="bg-slate-800/60 border border-slate-700 rounded p-4 space-y-2">
+                      <p>Use LLMs to provide faster, clearer answers and consistent information across channels (web, phone, counters) — with human oversight where needed.</p>
+                      <div class="grid md:grid-cols-2 gap-3">
+                        <div>
+                          <h4 class="font-semibold">Typical applications</h4>
+                          <ul class="list-disc ml-6">
+                            <li>Natural‑language FAQs and policy Q&A with citations to official sources.</li>
+                            <li>Multilingual responses for common questions (fares, passes, accessibility).</li>
+                            <li>Drafting public‑facing explanations based on policy text, reviewed by staff.</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 class="font-semibold">Inputs → Outputs</h4>
+                          <ul class="list-disc ml-6">
+                            <li><em>Inputs:</em> website copy, policy PDFs, service pages, approved answers.</li>
+                            <li><em>Outputs:</em> short answers, snippets for web/IVR, translated content.</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <p class="text-slate-300 text-sm"><strong>Measure:</strong> first‑contact resolution, response time, and accuracy via spot checks.</p>
+                    </div>
+                    """,
+                ),
+                ModuleSection(
+                    title="Rider Support",
+                    content="""
+                    <div class="bg-slate-800/60 border border-slate-700 rounded p-4 space-y-2">
+                      <p>Assist riders with timely, accessible information. Keep humans in the loop for publishing and safety‑critical content.</p>
+                      <ul class="list-disc ml-6">
+                        <li><strong>Service alerts draft:</strong> model drafts a concise alert from operations notes; supervisor approves before posting.</li>
+                        <li><strong>Trip help (text‑only):</strong> clarify route options, transfers, and fare rules using official timetables.</li>
+                        <li><strong>Accessibility prompts:</strong> generate alt text and plain‑language summaries for key updates.</li>
+                      </ul>
+                      <p class="text-slate-300 text-sm"><strong>Guardrails:</strong> no real‑time navigation promises; cite sources; require approval on public posts.</p>
+                    </div>
+                    """,
+                ),
+                ModuleSection(
+                    title="Scheduling Support",
+                    content="""
+                    <div class="bg-slate-800/60 border border-slate-700 rounded p-4 space-y-2">
+                      <p>Use LLMs to summarize patterns and surface hypotheses from notes and historical summaries — not to replace schedulers.</p>
+                      <ul class="list-disc ml-6">
+                        <li><strong>Pattern insights:</strong> summarize recurring issues from operator notes and incident logs.</li>
+                        <li><strong>Scenario narratives:</strong> draft “what‑if” considerations for proposed timetable adjustments.</li>
+                        <li><strong>Change summaries:</strong> produce stakeholder updates describing rationale, benefits, and risks.</li>
+                      </ul>
+                      <p class="text-slate-300 text-sm"><strong>Guardrails:</strong> avoid PII; keep source excerpts; decisions remain with scheduling professionals.</p>
+                    </div>
+                    """,
+                ),
+                ModuleSection(
+                    title="IT End User Support",
+                    content="""
+                    <div class="bg-slate-800/60 border border-slate-700 rounded p-4 space-y-2">
+                      <p>Accelerate staff support with clear troubleshooting steps and consistent knowledge articles.</p>
+                      <ul class="list-disc ml-6">
+                        <li><strong>Triage & routing:</strong> classify tickets by product/urgency; suggest next actions.</li>
+                        <li><strong>Guided walkthroughs:</strong> turn SOPs into step‑by‑step instructions with checks.</li>
+                        <li><strong>Knowledge upkeep:</strong> summarize change logs into KB article updates for review.</li>
+                      </ul>
+                      <p class="text-slate-300 text-sm"><strong>Measure:</strong> time‑to‑resolution, deflection rate, and KB accuracy via audits.</p>
+                    </div>
+                    """,
+                ),
             ],
             guardrails=[
                 "Coordinate with union workforce and stakeholders as appropriate.",
@@ -476,3 +639,17 @@ def get_module(slug: str) -> Optional[Module]:
         if m.slug == slug:
             return m
     return None
+
+
+def get_course_meta() -> CourseMeta:
+    return CourseMeta(
+        slug="course-1",
+        title="AI Foundations for C-TRAN",
+        summary="A 30-minute, approachable program to align on AI and its role at C-TRAN.",
+        duration="~30 minutes",
+        level="Introductory",
+        hero_image="/static/images/courses/_defaults/hero.svg",
+        thumbnail="/static/images/courses/_defaults/thumb.svg",
+        og_image="/static/images/courses/_defaults/hero.svg",
+        tags=["AI", "LLM", "Foundations"],
+    )
