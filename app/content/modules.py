@@ -211,11 +211,75 @@ def get_modules() -> List[Module]:
         Module(
             slug="llms",
             title="Understanding LLMs",
-            summary="What LLMs are, how they work, and how to use them well.",
+            summary="Foundation models, what LLMs are, how they work, where they shine and struggle — plus a quick mental picture.",
             sections=[
-                ModuleSection("What LLMs Are", "Models trained on massive text corpora to predict the next token and generate useful outputs."),
-                ModuleSection("How They Work", "They learn patterns, facts, and reasoning; adapt to tasks like summarization or drafting."),
-                ModuleSection("Strengths & Limits", "Great at language tasks; can hallucinate, be biased, or confidently wrong — use thoughtfully."),
+                ModuleSection(
+                    title="Foundation Models (Definition)",
+                    content="""
+                    <div class="bg-slate-800/60 border border-slate-700 rounded p-4">
+                      <p><strong>Foundation Model:</strong> a large model trained on broad, general‑purpose data (text, images, code, etc.) so it learns useful patterns that can be <em>adapted</em> to many tasks. You can use it as‑is (prompting), add your knowledge via <em>retrieval</em>, or <em>fine‑tune</em> it for specific styles and workflows.</p>
+                    </div>
+                    """,
+                ),
+                ModuleSection(
+                    title="What LLMs Are (and Aren’t)",
+                    content="""
+                    <p><strong>LLMs</strong> (Large Language Models) are a <em>type</em> of foundation model focused on language. They predict the next token (piece of text) extremely well, which lets them draft, summarize, translate, and reason in useful ways.</p>
+                    <ul class="list-disc ml-6 mt-2">
+                      <li><strong>They are</strong> general language engines you steer with instructions (prompts).</li>
+                      <li><strong>They aren’t</strong> databases of truth — treat outputs as <em>drafts</em> and verify important facts.</li>
+                    </ul>
+                    """,
+                ),
+                ModuleSection(
+                    title="How They Work (the 60‑second version)",
+                    content="""
+                    <ul class="list-disc ml-6">
+                      <li><strong>Tokens:</strong> Text is broken into tokens; the model predicts the next token given context.</li>
+                      <li><strong>Transformers:</strong> The architecture uses <em>attention</em> to focus on relevant parts of the input for each prediction.</li>
+                      <li><strong>Pretraining:</strong> Learn patterns from large corpora; no task‑specific labels required.</li>
+                      <li><strong>Instruction‑tuning:</strong> Additional training makes models follow plain‑English instructions.</li>
+                      <li><strong>RAG (Retrieval‑Augmented Generation):</strong> Bring your documents at answer time for grounded responses.</li>
+                      <li><strong>Tool use:</strong> Some models can call functions/APIs (search, databases) to get facts or take actions.</li>
+                    </ul>
+                    """,
+                ),
+                ModuleSection(
+                    title="What They’re Great At",
+                    content="""
+                    <ul class="list-disc ml-6">
+                      <li>Summarizing long material into key points.</li>
+                      <li>Drafting emails, reports, job aids, policies (with guidance).</li>
+                      <li>Rewriting for tone, length, and audience.</li>
+                      <li>Classifying/routing messages and requests.</li>
+                      <li>Multilingual support and translation.</li>
+                    </ul>
+                    """,
+                ),
+                ModuleSection(
+                    title="Where They Struggle",
+                    content="""
+                    <ul class="list-disc ml-6">
+                      <li>Factual accuracy without sources; may <em>hallucinate</em>.</li>
+                      <li>Out‑of‑date knowledge unless you add retrieval or tools.</li>
+                      <li>Hidden biases from training data; needs oversight.</li>
+                      <li>Very detailed calculations or niche domain knowledge without context.</li>
+                    </ul>
+                    """,
+                ),
+                ModuleSection(
+                    title="Visual: A mental picture of an LLM",
+                    content="""
+                    <figure class="space-y-2">
+                      <div class="mx-auto max-w-3xl md:max-w-5xl px-2 flex justify-center">
+                        <a href="/static/images/llm_diagram.svg" target="_blank" rel="noopener" title="Open full-size">
+                          <img src="/static/images/llm_diagram.svg" alt="LLM (Transformer) mental model diagram" class="block w-auto max-w-full h-auto object-contain max-h-[80vh] mx-auto rounded border border-slate-700/50 bg-slate-900" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'h-40 flex items-center justify-center text-xs bg-slate-800 rounded border border-slate-700/50',textContent:'LLM diagram placeholder'}) )">
+                        </a>
+                      </div>
+                      <figcaption class="text-xs md:text-sm text-slate-400 text-center">Illustration: Token → Embeddings → Transformer stack → Output tokens.</figcaption>
+                    </figure>
+                    """,
+                ),
             ],
             guardrails=[
                 "Avoid sharing PII or sensitive data in public tools.",
