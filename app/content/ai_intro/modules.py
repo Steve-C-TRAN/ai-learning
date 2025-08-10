@@ -812,8 +812,8 @@ def get_course_meta() -> CourseMeta:
         summary="A 30-minute, approachable program to align on AI and its role at C-TRAN.",
         duration="~30 minutes",
         level="Introductory",
-        hero_image="/static/images/courses/intro/hero.png",
-        thumbnail="/static/images/courses/intro/thumb.png",
-        og_image="/static/images/courses/intro/thumb.png",
+        hero_image="/static/images/courses/_defaults/hero.svg",
+        thumbnail="/static/images/courses/_defaults/thumb.svg",
+        og_image="/static/images/courses/_defaults/hero.svg",
         tags=["AI", "LLM", "Foundations"],
     )

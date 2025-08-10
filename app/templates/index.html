@@ -17,13 +17,14 @@
         <img src="{{ c.thumbnail or '/static/images/courses/_defaults/thumb.svg' }}" alt="{{ c.title }}" class="w-full h-40 object-cover" onerror="this.onerror=null; this.src='/static/images/courses/_defaults/thumb.svg'" loading="lazy">
       </div>
       <div class="p-4">
-        <div class="flex items-start justify-between gap-3">
-          <h2 class="text-lg font-semibold group-hover:text-white">{{ c.title }}</h2>
-          <div class="flex items-center gap-2 whitespace-nowrap">
-            {% if c.level %}<span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300">{{ c.level }}</span>{% endif %}
-            {% if c.duration %}<span class="text-[11px] text-slate-400">{{ c.duration }}</span>{% endif %}
-          </div>
+        <!-- Title -->
+        <h2 class="text-lg font-semibold group-hover:text-white">{{ c.title }}</h2>
+        <!-- Metadata moved below title -->
+        <div class="mt-1 flex items-center gap-2">
+          {% if c.level %}<span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300">{{ c.level }}</span>{% endif %}
+          {% if c.duration %}<span class="text-[11px] text-slate-400">{{ c.duration }}</span>{% endif %}
         </div>
+        <!-- Summary -->
         <p class="text-slate-300 mt-2 text-sm">{{ c.summary }}</p>
         <div class="mt-3 text-cyan-300 text-sm">Open →</div>
       </div>

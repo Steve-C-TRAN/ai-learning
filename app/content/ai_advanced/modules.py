@@ -334,8 +334,8 @@ def get_course_meta() -> CourseMeta:
         summary="Practical delivery models, patterns, and leadership insights for responsible adoption.",
         duration="~45–60 minutes",
         level="Intermediate",
-        hero_image="/static/images/courses/advanced/hero.png",
-        thumbnail="/static/images/courses/advanced/thumb.png",
-        og_image="/static/images/courses/advanced/thumb.png",
+        hero_image="/static/images/courses/_defaults/hero.svg",
+        thumbnail="/static/images/courses/_defaults/thumb.svg",
+        og_image="/static/images/courses/_defaults/hero.svg",
         tags=["Delivery", "Governance", "Leadership"],
     )
