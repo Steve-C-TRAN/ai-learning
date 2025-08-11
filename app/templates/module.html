@@ -3,6 +3,7 @@
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
   <div id="module-meta"
        data-slug="{{ module.slug }}"
+       {% if course %}data-course-slug="{{ course.slug }}"{% endif %}
        {% if next_module %}
          {% if course %}
            data-next-url="{{ url_for('main.course_module_view', course_slug=course.slug, module_slug=next_module.slug) }}"
@@ -55,7 +56,7 @@
 
   <div class="space-y-6 mt-6">
     {% for s in module.sections %}
-    <section class="glass-effect rounded-xl p-6 border border-slate-700/50">
+    <section class="glass-effect rounded-xl p-6 border border-slate-700/50 transition-colors duration-200 hover:border-emerald-500/70 focus-within:border-emerald-500/70">
       <h3 class="text-xl font-semibold mb-2">{{ s.title }}</h3>
       <div class="text-slate-200 space-y-3">{{ s.content|safe }}</div>
     </section>
@@ -115,15 +116,20 @@
 (function() {
   const metaEl = document.getElementById('module-meta');
   const slug = metaEl?.dataset?.slug || '';
+  const courseSlug = metaEl?.dataset?.courseSlug || '';
   const sessionId = getOrSetSessionId();
   const nextModuleUrl = metaEl?.dataset?.nextUrl || null;
   const courseUrl = metaEl?.dataset?.courseUrl || null;
+
+  // Helper to build course-scoped keys and endpoints
+  const storageKey = courseSlug ? `${courseSlug}:${slug}` : slug;
+  const quizEndpoint = courseSlug ? `/api/quiz/${courseSlug}/${slug}` : `/api/quiz/${slug}`;
 
   // Record view event
   fetch('/api/event', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ session_id: sessionId, event_type: 'view', module_slug: slug, page: window.location.pathname })
+    body: JSON.stringify({ session_id: sessionId, event_type: 'view', module_slug: storageKey, page: window.location.pathname })
   });
 
   // If user clicks Next Module, mark complete then navigate
@@ -134,7 +140,7 @@
         await fetch('/api/progress', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ session_id: sessionId, module_slug: slug, completed: true })
+          body: JSON.stringify({ session_id: sessionId, module_slug: storageKey, completed: true })
         });
       } catch {}
       window.location.href = link.href;
@@ -165,7 +171,7 @@
         await fetch('/api/progress', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ session_id: sessionId, module_slug: slug, completed: true })
+          body: JSON.stringify({ session_id: sessionId, module_slug: storageKey, completed: true })
         });
       } catch {}
       window.location.href = nextModuleUrl || courseUrl || '/';
@@ -176,7 +182,7 @@
     optionsEl.innerHTML = '';
     promptEl.textContent = 'Loading question...';
 
-    const res = await fetch(`/api/quiz/${slug}?session_id=${encodeURIComponent(sessionId)}`);
+    const res = await fetch(`${quizEndpoint}?session_id=${encodeURIComponent(sessionId)}`);
     const payload = await res.json();
 
     // Update progress text if provided
@@ -216,7 +222,7 @@
 
   async function submitAnswer(selected) {
     if (!currentQ) return;
-    const res = await fetch(`/api/quiz/${slug}`, {
+    const res = await fetch(quizEndpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ session_id: sessionId, question_id: currentQ.id, selected })

@@ -35,25 +35,17 @@ def get_modules() -> List[Module]:
     return [
         Module(
             slug="introduction",
-            title="Introduction & Goals",
-            summary="Short, practical coaching on everyday ways AI can help at C‑TRAN — simple patterns, safe use, and ideas to try.",
+            title="Welcome to AI Foundations!",
+            summary="The course is designed to give you an overview of AI, how it works, and some potential applications for it in the pubic transit industry.",
             sections=[
                 ModuleSection(
-                    title="Program Overview",
-                    content=(
-                        "<p>This session is about <strong>practical ways AI can support day‑to‑day work</strong> at C‑TRAN.</p>"
-                        "<p>We’ll keep it simple: quick demos of common patterns (summarize, draft, transform), light tips on safety, and <em>ideas you can try right away</em>.</p>"
-                        "<p>No deep tech—just useful examples and coaching.</p>"
-                    ),
-                ),
-                ModuleSection(
-                    title="Program Goals",
+                    title="Objectives",
                     content=(
                         "<ul class=\"list-disc ml-6\">"
                         "<li>Spot a few <strong>everyday opportunities</strong> where AI saves time (emails, summaries, drafts).</li>"
                         "<li>Apply <strong>simple patterns</strong>: summarize, draft, rewrite/transform — with clear prompts.</li>"
                         "<li>Use <strong>approved tools safely</strong>: avoid PII, review important facts, keep humans in the loop.</li>"
-                        "<li>Leave with <strong>1–2 ideas to try</strong> this month in your team.</li>"
+                        "<li>Leave with <strong>1–2 ideas to try</strong> explore with your team.</li>"
                         "</ul>"
                         "<p class=\"mt-3 text-slate-300\">Accessible to everyone — curiosity welcome.</p>"
                     ),
@@ -77,8 +69,6 @@ def get_modules() -> List[Module]:
                         "<p><strong>Generative AI</strong> refers to models that can create new content (text, images, audio, code) based on patterns learned from data.</p>"
                         "<p><strong>Large Language Models (LLMs)</strong> are a type of generative AI trained on vast text corpora to predict the next token, enabling tasks like summarization, Q&A, drafting, and translation.</p>"
                         "<ul class=\"list-disc ml-6 mt-2\">"
-                        "<li><em>Strengths:</em> language understanding, drafting, summarization</li>"
-                        "<li><em>Limits:</em> can hallucinate, reflect biases, require clear instructions and verification</li>"
                         "</ul>"
                     ),
                 ),
@@ -260,8 +250,8 @@ def get_modules() -> List[Module]:
         ),
         Module(
             slug="current-models",
-            title="Current AI Models & Vendors",
-            summary="OpenAI, Anthropic, Google, Meta, Mistral, DeepSeek, and xAI — who does what today, at a glance.",
+            title="Overview of Key AI Companies and Models",
+            summary="There are thousands of companies competing in the AI space. These companies are among the leaders in the development of foundational models for text, image, and audio generation.",
             sections=[
                 ModuleSection(
                     title="Vendors at a Glance",
@@ -316,32 +306,36 @@ def get_modules() -> List[Module]:
                           <div class="text-xs text-slate-400">Grok 4 family</div>
                         </div>
                       </a>
+                      <a href="https://www.midjourney.com/" target="_blank" rel="noopener" class="glass-effect p-3 rounded border border-slate-700/50 flex items-center gap-3 hover:border-slate-600">
+                        <img src="/static/images/vendor_logos/midjourney.png" alt="Midjourney" class="h-8" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'h-8 w-8 rounded bg-slate-700 flex items-center justify-center text-xs',textContent:'MJ'}))">
+                        <div>
+                          <div class="font-semibold">Midjourney</div>
+                          <div class="text-xs text-slate-400">Image generation (v6/v7), Style Tuner</div>
+                        </div>
+                      </a>
+                      <a href="https://elevenlabs.io/" target="_blank" rel="noopener" class="glass-effect p-3 rounded border border-slate-700/50 flex items-center gap-3 hover:border-slate-600">
+                        <img src="/static/images/vendor_logos/elevenlabs.png" alt="ElevenLabs" class="h-8" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'h-8 w-8 rounded bg-slate-700 flex items-center justify-center text-xs',textContent:'11'}))">
+                        <div>
+                          <div class="font-semibold">ElevenLabs</div>
+                          <div class="text-xs text-slate-400">Text‑to‑Speech, Voice Cloning, Sound FX</div>
+                        </div>
+                      </a>
                     </div>
-                    <p class="text-xs text-slate-400 mt-2">Logos will show if placed under <code>/static/images/vendor_logos/</code> (e.g., <code>openai.png</code>). Otherwise, initials are shown.</p>
                     """,
                 ),
                 ModuleSection(
                     title="Model Snapshots (mid‑2025)",
                     content="""
                     <ul class="list-disc ml-6">
-                      <li><strong>OpenAI:</strong> GPT‑4o and o4‑mini for multimodal + cost efficiency; research on o3 reasoning.</li>
-                      <li><strong>Anthropic:</strong> Claude Opus 4.1 and Sonnet 4 emphasize reasoning, safety, and agentic use.</li>
+                      <li><strong>OpenAI:</strong> Release GPT 5 in August 2025; focused on coding, multimodal capabilities and improved tool calling.</li>
+                      <li><strong>Anthropic:</strong> Claude Opus 4.1 and Sonnet 4 emphasize reasoning, safety, and agentic use; best coding models.</li>
                       <li><strong>Google:</strong> Gemini 2.5 (Pro, Flash, Flash‑Lite) with Deep Think mode and adaptive reasoning.</li>
-                      <li><strong>Meta:</strong> Llama 4 (Maverick, Scout) natively multimodal; strong on long context and open ecosystem.</li>
+                      <li><strong>Meta:</strong> Llama 4 (Maverick, Scout) natively multimodal; strong on long context and open source ecosystem.</li>
                       <li><strong>Mistral:</strong> Large/Medium 3 for reasoning; Codestral for code; strong EU hosting options.</li>
-                      <li><strong>DeepSeek:</strong> V3 (chat) and R1 (reasoning) with OpenAI‑compatible APIs; value‑focused pricing.</li>
-                      <li><strong>xAI:</strong> Grok 4 with tool use and real‑time search integration.</li>
-                    </ul>
-                    """,
-                ),
-                ModuleSection(
-                    title="Choosing a Model for a Pilot",
-                    content="""
-                    <ul class="list-disc ml-6">
-                      <li><strong>Task fit:</strong> summarization, generation, code, multilingual, or vision?</li>
-                      <li><strong>Data sensitivity:</strong> approved enterprise tiers vs. public tools; consider on‑device options.</li>
-                      <li><strong>Latency/cost:</strong> smaller variants (Flash/mini/Small) for high‑volume tasks.</li>
-                      <li><strong>Deployment:</strong> API, VPC, on‑prem, or edge device? Support and SLAs?</li>
+                      <li><strong>DeepSeek:</strong> V3 (chat) and R1 (reasoning) with OpenAI‑compatible APIs; value‑focused pricing; Chinese ownership.</li>
+                      <li><strong>xAI:</strong> Grok 4 with tool use and real‑time search integration, integrated with X (former Twitter).</li>
+                      <li><strong>Midjourney:</strong> v6/v7 for high‑quality image generation; strong composition/photorealism; Style Tuner.</li>
+                      <li><strong>ElevenLabs:</strong> neural text to speech, voice cloning, multilingual; also speech‑to‑speech and sound effects API.</li>
                     </ul>
                     """,
                 ),
@@ -354,6 +348,8 @@ def get_modules() -> List[Module]:
                 {"label": "Mistral", "url": "https://mistral.ai/models/"},
                 {"label": "DeepSeek", "url": "https://www.deepseek.com/"},
                 {"label": "xAI / Grok", "url": "https://x.ai/"},
+                {"label": "Midjourney", "url": "https://www.midjourney.com/"},
+                {"label": "ElevenLabs", "url": "https://elevenlabs.io/"},
             ],
         ),
         Module(
@@ -808,12 +804,12 @@ def get_module(slug: str) -> Optional[Module]:
 def get_course_meta() -> CourseMeta:
     return CourseMeta(
         slug="course-1",
-        title="AI Foundations for C-TRAN",
+        title="AI Foundations",
         summary="A 30-minute, approachable program to align on AI and its role at C-TRAN.",
         duration="~30 minutes",
         level="Introductory",
-        hero_image="/static/images/courses/_defaults/hero.svg",
-        thumbnail="/static/images/courses/_defaults/thumb.svg",
-        og_image="/static/images/courses/_defaults/hero.svg",
+        hero_image="/static/images/courses/intro/hero.png",
+        thumbnail="/static/images/courses/intro/thumb.png",
+        og_image="/static/images/courses/intro/hero.png",
         tags=["AI", "LLM", "Foundations"],
     )

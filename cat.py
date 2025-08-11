@@ -12,9 +12,12 @@ files_to_concatenate = [
     'app/routes/__init__.py',    # Routes initialization
     'app/routes/main.py',        # Main route handlers
 
-    # Content
-    'app/content/modules.py',    # Training content definitions
-    'app/content/quizzes.py',    # Knowledge check questions
+    # Content (per-course packages)
+    'app/content/loader.py',     # Course discovery and quiz helpers
+    'app/content/ai_intro/modules.py',   # Course 1 content
+    'app/content/ai_intro/quizzes.py',   # Course 1 quizzes
+    'app/content/ai_advanced/modules.py',# Course 2 content
+    'app/content/ai_advanced/quizzes.py',# Course 2 quizzes
 
     # Models and Data
     'app/models/__init__.py',    # Models initialization
@@ -37,7 +40,8 @@ files_to_concatenate = [
 
     # Templates
     'app/templates/base.html',   # Base template
-    'app/templates/index.html',  # Modules dashboard
+    'app/templates/index.html',  # Courses landing
+    'app/templates/course.html', # Course detail page
     'app/templates/module.html', # Module detail page with quiz
 
     # Frontend Assets (exclude images and generated CSS)

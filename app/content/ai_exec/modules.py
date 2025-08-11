@@ -312,9 +312,20 @@ def get_modules() -> List[Module]:
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/uTRKdCY4HdE" title="Enterprise AI Strategy and CEO Leadership - McKinsey" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     """,
                 ),
+                ModuleSection(
+                    title="Dig Deeper: The Last 6 Decades of AI — and What Comes Next (TED)",
+                    content="""
+                    <p>A visionary TED Talk by futurist Ray Kurzweil that puts the AI revolution in perspective and peers into the coming decades. Kurzweil charts AI’s exponential progress over the past 60 years and predicts how it will unfold into the future — including the advent of artificial general intelligence and the potential merging of human intelligence with AI. This forward-looking talk challenges leaders to think beyond immediate plans and consider how AI might fundamentally reshape industries, work, and human potential.</p>
+                    <div class="mt-3">
+                      <iframe width="560" height="315" src="https://embed.ted.com/talks/ray_kurzweil_the_last_6_decades_of_ai_and_what_comes_next" title="Ray Kurzweil: The Last 6 Decades of AI — and What Comes Next (TED)" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    </div>
+                    <p class="text-slate-400 text-sm mt-2">If the embed doesn’t load, <a class="text-cyan-300 underline" href="https://www.ted.com/talks/ray_kurzweil_the_last_6_decades_of_ai_and_what_comes_next" target="_blank" rel="noopener">open the talk on TED.com</a>.</p>
+                    """,
+                ),
             ],
             resources=[
-                {"label": "McKinsey Article Hub", "url": "https://www.mckinsey.com/featured-insights/artificial-intelligence"}
+                {"label": "McKinsey Article Hub", "url": "https://www.mckinsey.com/featured-insights/artificial-intelligence"},
+                {"label": "Ray Kurzweil TED Talk", "url": "https://www.ted.com/talks/ray_kurzweil_the_last_6_decades_of_ai_and_what_comes_next"}
             ],
         ),
     ]
@@ -329,13 +340,13 @@ def get_module(slug: str) -> Optional[Module]:
 
 def get_course_meta() -> CourseMeta:
     return CourseMeta(
-        slug="course-2",
-        title="Applied AI: Delivery Models & Leadership",
-        summary="Practical delivery models, patterns, and leadership insights for responsible adoption.",
-        duration="~45–60 minutes",
-        level="Intermediate",
-        hero_image="/static/images/courses/advanced/hero.png",
-        thumbnail="/static/images/courses/advanced/thumb.png",
-        og_image="/static/images/courses/advanced/thumb.png",
-        tags=["Delivery", "Governance", "Leadership"],
+        slug="course-4",
+        title="AI for Executives: Leading in the AI Era",
+        summary="Case studies, frameworks, and leadership insights for AI adoption as a business leader.",
+        duration="~30–45 minutes",
+        level="Intermediate-advanced",
+        hero_image="/static/images/courses/exec/hero.png",
+        thumbnail="/static/images/courses/exec/thumb.png",
+        og_image="/static/images/courses/exec/hero.png",
+        tags=["Leadership", "Innovation"],
     )
