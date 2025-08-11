@@ -35,65 +35,130 @@ def get_modules() -> List[Module]:
     return [
         Module(
             slug="introduction",
-            title="Introduction & Goals",
-            summary="An applied kickoff for delivery models, architectures, evaluation, and leadership alignment at C‑TRAN.",
+            title="Executive Introduction: Decisions, Risk, and a 90‑Day Plan",
+            summary="Actionable guidance for directors and C‑level leaders to capture AI value safely in public transit.",
             sections=[
                 ModuleSection(
-                    title="Program Overview",
+                    title="Why AI, Why Now for Public Transit",
                     content=(
                         """
-                        <p>This advanced track is about <strong>making AI real at C‑TRAN</strong>: selecting delivery models, choosing architectures, setting guardrails, and planning rollout. We focus on <em>practical trade‑offs</em> across public assistants, enterprise copilots, cloud APIs, and C‑TRAN‑hosted open‑source — plus patterns like RAG, fine‑tuning, and agent workflows.</p>
-                        <p>By the end, you’ll know how to evaluate options, design a minimal viable solution for a priority use case, and align stakeholders on governance, risk, and value.</p>
-                        """
-                    ),
-                ),
-                ModuleSection(
-                    title="Program Goals",
-                    content=(
-                        """
-                        <ul class=\"list-disc ml-6\">
-                          <li>Match <strong>delivery models</strong> to use cases and data sensitivity (public, enterprise, cloud API, C‑TRAN‑hosted).</li>
-                          <li>Select a <strong>reference architecture</strong> (RAG vs. fine‑tuning vs. hybrid) for one priority use case.</li>
-                          <li>Define <strong>success metrics</strong> and an <strong>evaluation plan</strong> (quality, safety, latency, cost).</li>
-                          <li>Apply <strong>governance</strong>: PII handling, logging/audit, red‑teaming, and human‑in‑the‑loop.</li>
-                          <li>Outline a <strong>30‑60‑90 day plan</strong> for pilot → production, including stakeholders and budget.</li>
-                        </ul>
-                        <p class=\"mt-3 text-slate-300\">Geared for managers, tech leads, product owners, and interested executives.</p>
-                        """
-                    ),
-                ),
-                ModuleSection(
-                    title="Agenda",
-                    content=(
-                        """
-                        <ul class=\"list-disc ml-6\">
-                          <li>Delivery model <strong>trade‑offs</strong> and <strong>reference architectures</strong></li>
-                          <li><strong>RAG vs. fine‑tuning</strong> decision tree; eval sets, A/B testing</li>
-                          <li><strong>Cost/performance levers</strong>: context size, caching, constraints, distillation</li>
-                          <li><strong>Security & governance</strong>: PII, data residency, audit, safety reviews</li>
-                          <li>Integration lifecycle: prompt mgmt, telemetry, fallback, escalation</li>
-                          <li>Pilot → production rollout, change management, enablement</li>
-                          <li>Leadership alignment: outcomes, risks, procurement, and ROI</li>
+                        <ul class="list-disc ml-6">
+                          <li><strong>Cost and capacity pressure:</strong> do more with constrained budgets and hiring challenges.</li>
+                          <li><strong>Rider expectations:</strong> faster, clearer, multilingual information across channels.</li>
+                          <li><strong>Operations:</strong> quicker summaries, triage, and decision support from existing data.</li>
+                          <li><strong>Safety and compliance:</strong> consistent language, policy alignment, and better documentation.</li>
+                          <li><strong>Technology shift:</strong> practical gains from copilots, RAG over agency documents, and workflow automations.</li>
                         </ul>
                         """
                     ),
                 ),
                 ModuleSection(
-                    title="AI vs ML vs Generative AI vs LLMs",
+                    title="Executive Decisions to Make in the Next Quarter",
                     content=(
-                        "<p><strong>Artificial Intelligence (AI)</strong> is the broad field of making computers perform tasks that typically require human intelligence (reasoning, planning, perception, language).</p>"
-                        "<p><strong>Machine Learning (ML)</strong> is a subset of AI focused on learning patterns from data to make predictions or decisions without being explicitly programmed for every rule.</p>"
-                        "<p><strong>Generative AI</strong> refers to models that can create new content (text, images, audio, code) based on patterns learned from data.</p>"
-                        "<p><strong>Large Language Models (LLMs)</strong> are a type of generative AI trained on vast text corpora to predict the next token, enabling tasks like summarization, Q&A, drafting, and translation.</p>"
-                        "<ul class=\"list-disc ml-6 mt-2\">"
-                        "<li><em>Strengths:</em> language understanding, drafting, summarization</li>"
-                        "<li><em>Limits:</em> can hallucinate, reflect biases, require clear instructions and verification</li>"
-                        "</ul>"
+                        """
+                        <ul class="list-disc ml-6">
+                          <li><strong>Priority use cases:</strong> select 2–3 with measurable outcomes and low risk.</li>
+                          <li><strong>Delivery model:</strong> public assistant (no sensitive data), enterprise copilots, cloud APIs, or C‑TRAN‑hosted open‑source.</li>
+                          <li><strong>Data strategy:</strong> source systems, document scope for retrieval, retention, residency, and access controls.</li>
+                          <li><strong>Operating model:</strong> accountable product owner, tech lead, risk/compliance partner, and review cadence.</li>
+                          <li><strong>Guardrails & policy:</strong> PII handling, human‑in‑the‑loop, logging/audit, red‑teaming before go‑live.</li>
+                          <li><strong>Funding & procurement:</strong> buy/build/partner decision, small pilot budget, contract protections.</li>
+                          <li><strong>Measurement:</strong> define KPIs, quality and safety thresholds, and an evaluation harness.</li>
+                        </ul>
+                        """
                     ),
+                ),
+                ModuleSection(
+                    title="30–60–90 Day Action Plan",
+                    content=(
+                        """
+                        <div class="bg-slate-800/60 border border-slate-700 rounded p-4">
+                          <ol class="list-decimal ml-6 space-y-1">
+                            <li><strong>Day 0–30:</strong> pick use cases; assign sponsor and owner; approve guardrails; complete privacy/legal review; inventory documents/data; baseline KPIs.</li>
+                            <li><strong>Day 31–60:</strong> build small pilots (RAG/copilot); set up eval set and A/B testing; train pilot users; capture benefits and issues.</li>
+                            <li><strong>Day 61–90:</strong> go/no‑go; production hardening (monitoring, audit, fallback); change‑management plan; scale decision and budget.</li>
+                          </ol>
+                        </div>
+                        """
+                    ),
+                ),
+                ModuleSection(
+                    title="Governance You Must Stand Up",
+                    content=(
+                        """
+                        <ul class="list-disc ml-6">
+                          <li>PII minimization, approved tools only, and content review for public outputs.</li>
+                          <li>Data residency and vendor risk reviews; model/version logging and traceability.</li>
+                          <li>Human‑in‑the‑loop checkpoints for safety‑critical or public communications.</li>
+                          <li>Incident response: rollback, escalation, and user‑visible notices if needed.</li>
+                        </ul>
+                        """
+                    ),
+                ),
+                ModuleSection(
+                    title="Operating Model and Accountabilities",
+                    content=(
+                        """
+                        <ul class="list-disc ml-6">
+                          <li><strong>Executive sponsor:</strong> clears roadblocks, owns outcomes.</li>
+                          <li><strong>Product owner:</strong> prioritizes use cases, defines requirements, and accepts results.</li>
+                          <li><strong>Technical lead:</strong> delivery model, architecture, and quality gates.</li>
+                          <li><strong>Risk & compliance:</strong> privacy, records, accessibility, and audit.</li>
+                          <li><strong>Change management & training:</strong> communications, enablement, and adoption.</li>
+                        </ul>
+                        """
+                    ),
+                ),
+                ModuleSection(
+                    title="Metrics and Review Cadence",
+                    content=(
+                        """
+                        <ul class="list-disc ml-6">
+                          <li><strong>Business KPIs:</strong> e.g., time‑to‑publish alerts, first‑contact resolution, cost per ticket.</li>
+                          <li><strong>Quality & safety:</strong> accuracy with citations, policy alignment, red‑team findings resolved.</li>
+                          <li><strong>Experience:</strong> adoption, satisfaction, and measured time savings.</li>
+                          <li><strong>Ops:</strong> latency, availability, cost per task; fallback rate.</li>
+                          <li>Publish a simple dashboard and review monthly at the leadership team.</li>
+                        </ul>
+                        """
+                    ),
+                ),
+                ModuleSection(
+                    title="Use‑Case Selection Checklist",
+                    content=(
+                        """
+                        <ul class="list-disc ml-6">
+                          <li>Clear, measurable outcome tied to a business owner.</li>
+                          <li>Low‑risk scope and availability of source documents/data.</li>
+                          <li>Human‑in‑the‑loop feasible; public outputs reviewed.</li>
+                          <li>Small, diverse evaluation set to test quality and safety.</li>
+                          <li>Baseline and target metrics defined before starting.</li>
+                        </ul>
+                        """
+                    ),
+                ),
+                # Keep data-driven external snapshot for leaders
+                ModuleSection(
+                    title="Stanford Report: How AI Is Transforming the Business World (Article, ~10 min)",
+                    content="""
+                    <div class="bg-slate-800/60 border border-slate-700 rounded p-4 space-y-2">
+                    <p>This Big Think interview with a Stanford HAI researcher draws on the 2024 AI Index Report to share evidence‑based insights. It highlights where AI is already boosting worker <strong>productivity</strong> and <strong>quality of work</strong>, while noting that many managers anticipate <strong>workforce changes</strong> that call for reskilling and role redesign. Use this as a quick, data‑driven briefing to separate hype from reality.</p>
+                    <ul class="list-disc ml-6">
+                        <li>Evidence from the 2024 AI Index: adoption trends, performance benchmarks, and economic signals.</li>
+                        <li>Productivity and quality gains across certain tasks; limits and caveats for high‑stakes work.</li>
+                        <li>Manager outlook: expected job/task shifts → prioritize training, guardrails, and change management.</li>
+                        <li>Leadership takeaways: define use cases, measure ROI and quality, and align with governance.</li>
+                    </ul>
+                    <p class="mt-2">
+                        <a class="text-cyan-300 underline" href="https://aiindex.stanford.edu/report/" target="_blank" rel="noopener">Stanford HAI — 2024 AI Index Report</a>
+                    </p>
+                    </div>
+                    """,
                 ),
             ],
             resources=[
-                {"label": "C-TRAN Website", "url": "https://www.c-tran.com/"},
+                {"label": "Harvard Kennedy School Working Paper (context)", "url": "https://www.hks.harvard.edu/sites/default/files/centers/mrcbg/Final_AWP_244.pdf"},
+                {"label": "Stanford HAI — 2024 AI Index", "url": "https://aiindex.stanford.edu/report/"},
             ],
         ),
         Module(

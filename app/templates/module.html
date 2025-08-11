@@ -40,7 +40,16 @@
     {% endif %}
   </div>
 
-  <h1 class="text-3xl font-bold mt-2">{{ module.title }}</h1>
+  <!-- New: Course hero image at top of module page -->
+  <div class="mt-2 overflow-hidden rounded-2xl border border-slate-700/50">
+    <div class="relative h-40 md:h-56 bg-slate-900">
+      {% set hero = course.meta.hero_image if course and course.meta and course.meta.hero_image else '/static/images/courses/_defaults/thumb.svg' %}
+      <img src="{{ hero }}" alt="{{ (course.meta.title ~ ' — ' ~ module.title) if course and course.meta else module.title }}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='/static/images/courses/_defaults/thumb.svg'">
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-950/20 to-transparent"></div>
+    </div>
+  </div>
+
+  <h1 class="text-3xl font-bold mt-4">{{ module.title }}</h1>
   <p class="text-slate-300 mt-2">{{ module.summary }}</p>
 
   {% if module.guardrails and module.guardrails|length %}
