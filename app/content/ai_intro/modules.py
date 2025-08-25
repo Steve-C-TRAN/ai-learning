@@ -36,28 +36,32 @@ def get_modules() -> List[Module]:
         Module(
             slug="introduction",
             title="Welcome to AI Foundations!",
-            summary="The course is designed to give you an overview of AI, how it works, and some potential applications for it in the pubic transit industry.",
+            summary="The course is designed to give you an overview of AI, how it works, and some potential applications for it in the public transit industry.",
             sections=[
                 ModuleSection(
                     title="Objectives",
                     content=(
                         "<ul class=\"list-disc ml-6\">"
-                        "<li>Spot a few <strong>everyday opportunities</strong> where AI saves time (emails, summaries, drafts).</li>"
-                        "<li>Apply <strong>simple patterns</strong>: summarize, draft, rewrite/transform — with clear prompts.</li>"
+                        "<li>Learn the basic concepts of AI and its applications in business.</li>"
+                        "<li>Explore the <strong>AI landscape</strong> and identify key players and technologies.</li>"
                         "<li>Use <strong>approved tools safely</strong>: avoid PII, review important facts, keep humans in the loop.</li>"
                         "<li>Leave with <strong>1–2 ideas to try</strong> explore with your team.</li>"
                         "</ul>"
-                        "<p class=\"mt-3 text-slate-300\">Accessible to everyone — curiosity welcome.</p>"
+                        "<p class=\"mt-3 text-slate-300\">Upscale your AI knowledge.</p>"
                     ),
                 ),
                 ModuleSection(
                     title="Agenda",
                     content=(
                         "<ul class=\"list-disc ml-6\">"
-                        "<li>Quick examples: summarize → draft → transform</li>"
-                        "<li>Transit‑flavored use cases and tips</li>"
-                        "<li>Guardrails and better prompts (plain language)</li>"
-                        "<li>Try‑it checklist and next steps</li>"
+                        "<li><strong>Foundations:</strong> key terms and eras (AI, ML, LLMs).</li>"
+                        "<li><strong>Mental model:</strong> how LLMs work and where they struggle.</li>"
+                        "<li><strong>Landscape:</strong> leading vendors and model families.</li>"
+                        "<li><strong>Practical patterns:</strong> summarize, draft, transform, extract, classify, report.</li>"
+                        "<li><strong>Transit use cases:</strong> CX, rider support, scheduling, IT support.</li>"
+                        "<li><strong>Prompting basics:</strong> role, context, constraints, examples, self‑check.</li>"
+                        "<li><strong>Practice:</strong> quick exercises you can try today.</li>"
+                        "<li><strong>Final quiz:</strong> quick knowledge check to complete the program.</li>"
                         "</ul>"
                     ),
                 ),
@@ -99,7 +103,7 @@ def get_modules() -> List[Module]:
                     <p>Today’s advances stand on decades of research. A few early pioneers:</p>
                     <ul class="list-disc ml-6">
                       <li><a class="text-cyan-300 underline" href="https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)" target="_blank" rel="noopener">John McCarthy</a> — coined the term “Artificial Intelligence,” organized the 1956 Dartmouth workshop.</li>
-                      <li><a class="text-cyan-300 underline" href="https://en.wikipedia.org/wiki/Karen_Sp%C3%A4rck_Jones" target="_blank" rel="noopener">Karen Spärck Jones</a> — pioneer of information retrieval (IDF), shaping modern search and NLP.</li>
+                      <li><a class="text-cyan-300 underline" href="https://en.wikipedia.org/wiki/Karen_Sp%C3%A4rck_Jones" target="_blank" rel="noopener">Karen Spärck Jones</a> — pioneer of information retrieval (IDF), shaping modern search and natural language processing (NLP).</li>
                     </ul>
                     """,
                 ),
@@ -251,7 +255,7 @@ def get_modules() -> List[Module]:
         Module(
             slug="current-models",
             title="Overview of Key AI Companies and Models",
-            summary="There are thousands of companies competing in the AI space. These companies are among the leaders in the development of foundational models for text, image, and audio generation.",
+            summary="There are thousands of companies competing in the AI space. These companies are among the leaders in the development of foundational models for text, image, and audio generation. Explore them to see more about what is out there.",
             sections=[
                 ModuleSection(
                     title="Vendors at a Glance",
@@ -261,14 +265,14 @@ def get_modules() -> List[Module]:
                         <img src="/static/images/vendor_logos/openai.png" alt="OpenAI" class="h-8" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'h-8 w-8 rounded bg-slate-700 flex items-center justify-center text-xs',textContent:'OA'}))">
                         <div>
                           <div class="font-semibold">OpenAI</div>
-                          <div class="text-xs text-slate-400">GPT-4o, o4-mini, reasoning</div>
+                          <div class="text-xs text-slate-400">GPT 5, GPT-4o, reasoning</div>
                         </div>
                       </a>
                       <a href="https://www.anthropic.com/claude" target="_blank" rel="noopener" class="glass-effect p-3 rounded border border-slate-700/50 flex items-center gap-3 hover:border-slate-600">
                         <img src="/static/images/vendor_logos/anthropic.png" alt="Anthropic" class="h-8" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'h-8 w-8 rounded bg-slate-700 flex items-center justify-center text-xs',textContent:'AN'}))">
                         <div>
                           <div class="font-semibold">Anthropic</div>
-                          <div class="text-xs text-slate-400">Claude Opus 4.1, Sonnet 4</div>
+                          <div class="text-xs text-slate-400">Claude Opus 4.1, Sonnet 4, coding</div>
                         </div>
                       </a>
                       <a href="https://deepmind.google/technologies/gemini/" target="_blank" rel="noopener" class="glass-effect p-3 rounded border border-slate-700/50 flex items-center gap-3 hover:border-slate-600">
@@ -282,28 +286,28 @@ def get_modules() -> List[Module]:
                         <img src="/static/images/vendor_logos/meta.png" alt="Meta Llama" class="h-8" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'h-8 w-8 rounded bg-slate-700 flex items-center justify-center text-xs',textContent:'ME'}))">
                         <div>
                           <div class="font-semibold">Meta</div>
-                          <div class="text-xs text-slate-400">Llama 4 family</div>
+                          <div class="text-xs text-slate-400">Llama 4 family; embedded in Facebook</div>
                         </div>
                       </a>
                       <a href="https://mistral.ai/models/" target="_blank" rel="noopener" class="glass-effect p-3 rounded border border-slate-700/50 flex items-center gap-3 hover:border-slate-600">
                         <img src="/static/images/vendor_logos/mistral.png" alt="Mistral" class="h-8" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'h-8 w-8 rounded bg-slate-700 flex items-center justify-center text-xs',textContent:'MI'}))">
                         <div>
                           <div class="font-semibold">Mistral</div>
-                          <div class="text-xs text-slate-400">Large, Medium 3, Codestral</div>
+                          <div class="text-xs text-slate-400">France: Large, Medium 3, Codestral</div>
                         </div>
                       </a>
                       <a href="https://www.deepseek.com/" target="_blank" rel="noopener" class="glass-effect p-3 rounded border border-slate-700/50 flex items-center gap-3 hover:border-slate-600">
                         <img src="/static/images/vendor_logos/deepseek.png" alt="DeepSeek" class="h-8" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'h-8 w-8 rounded bg-slate-700 flex items-center justify-center text-xs',textContent:'DS'}))">
                         <div>
                           <div class="font-semibold">DeepSeek</div>
-                          <div class="text-xs text-slate-400">V3 (chat), R1 (reasoner)</div>
+                          <div class="text-xs text-slate-400">China: V3 (chat), R1 (reasoner)</div>
                         </div>
                       </a>
                       <a href="https://x.ai/" target="_blank" rel="noopener" class="glass-effect p-3 rounded border border-slate-700/50 flex items-center gap-3 hover:border-slate-600">
                         <img src="/static/images/vendor_logos/xai.png" alt="xAI Grok" class="h-8" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'h-8 w-8 rounded bg-slate-700 flex items-center justify-center text-xs',textContent:'xAI'}))">
                         <div>
                           <div class="font-semibold">xAI</div>
-                          <div class="text-xs text-slate-400">Grok 4 family</div>
+                          <div class="text-xs text-slate-400">Grok 4 family, integrated with X platform</div>
                         </div>
                       </a>
                       <a href="https://www.midjourney.com/" target="_blank" rel="noopener" class="glass-effect p-3 rounded border border-slate-700/50 flex items-center gap-3 hover:border-slate-600">
@@ -378,7 +382,7 @@ def get_modules() -> List[Module]:
                       <li><em>What it is:</em> Turn long material into key points; ask targeted questions.</li>
                       <li><em>Inputs:</em> meeting notes, emails, policies, web pages; optionally add retrieval over your docs.</li>
                       <li><em>Outputs:</em> bullet summaries, executive briefs, FAQs, next‑step lists.</li>
-                      <li><em>Tips:</em> Specify audience and length; require citations when accuracy matters.</li>
+                      <li><em>Tips:</em> Specify audience and length; require (AND VERIFY) citations when accuracy matters.</li>
                     </ul>
                     """,
                 ),
@@ -413,19 +417,10 @@ def get_modules() -> List[Module]:
                     """,
                 ),
                 ModuleSection(
-                    title="Classification & Routing",
-                    content="""
-                    <ul class="list-disc ml-6">
-                      <li>Tag messages (topic, urgency, department) and route to the right queue or person.</li>
-                      <li>Apply policy labels or sensitivity flags based on brief criteria you provide.</li>
-                    </ul>
-                    """,
-                ),
-                ModuleSection(
                     title="Analysis & Quick Reports",
                     content="""
                     <ul class="list-disc ml-6">
-                      <li>Ask for patterns and insights from qualitative notes or light tabular data (paste snippets or summaries).</li>
+                      <li>Ask for patterns and insights from qualitative notes or light tabular data (paste snippets, screenshots, or summaries).</li>
                       <li>Generate a short narrative with key findings, risks, and recommended next steps.</li>
                     </ul>
                     """,
@@ -453,42 +448,6 @@ def get_modules() -> List[Module]:
                         <li><strong>Review:</strong> ask for uncertainties and a checklist for human verification.</li>
                       </ul>
                     </div>
-                    """,
-                ),
-                ModuleSection(
-                    title="Advanced: Ideate → Plan → Create",
-                    content="""
-                    <p>This advanced, <em>agentic</em> workflow uses an LLM to first <strong>ideate</strong> options, then <strong>plan</strong> the work, then <strong>create</strong> the deliverable — with tight human review in between.</p>
-                    <figure class="space-y-2 mt-2">
-                      <div class="mx-auto max-w-3xl md:max-w-5xl px-2 flex justify-center">
-                        <a href="/static/images/ideate_plan_create.svg" target="_blank" rel="noopener" title="Open full-size">
-                          <img src="/static/images/ideate_plan_create.svg" alt="Ideate, Plan, Create workflow diagram" class="block w-auto max-w-full h-auto object-contain max-h-[70vh] mx-auto rounded border border-slate-700/50 bg-slate-900" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'h-40 flex items-center justify-center text-xs bg-slate-800 rounded border border-slate-700/50',textContent:'Workflow diagram placeholder'}) )">
-                        </a>
-                      </div>
-                      <figcaption class="text-xs md:text-sm text-slate-400 text-center">Workflow: generate options → choose and plan → draft and refine with human review.</figcaption>
-                    </figure>
-                    <div class="mt-3 grid md:grid-cols-2 gap-4">
-                      <div class="bg-slate-800/50 border border-slate-700 rounded p-3">
-                        <h4 class="font-semibold">How to run it</h4>
-                        <ol class="list-decimal ml-6 space-y-1">
-                          <li><strong>Ideate:</strong> Ask for 3–5 approaches with pros/cons, risks, and required inputs.</li>
-                          <li><strong>Plan:</strong> Pick one; ask for objectives, stakeholders, steps, timelines, and success criteria.</li>
-                          <li><strong>Create:</strong> Provide your draft/notes and key excerpts; ask for a first draft in the required format.</li>
-                          <li><strong>Review:</strong> Have the LLM list uncertainties and assumptions; you edit and confirm sources.</li>
-                          <li><strong>Polish:</strong> Request tone, length, and formatting fixes (headings, tables, lists, alt text).</li>
-                        </ol>
-                      </div>
-                      <div class="bg-slate-800/50 border border-slate-700 rounded p-3">
-                        <h4 class="font-semibold">Prompting tips</h4>
-                        <ul class="list-disc ml-6 space-y-1">
-                          <li>State <em>audience</em>, <em>purpose</em>, and <em>constraints</em> (word count, style, must‑include points).</li>
-                          <li>Paste relevant excerpts; for accuracy, ask for citations or quotes from your snippets.</li>
-                          <li>Ask for a checklist you can verify before sending or publishing.</li>
-                          <li>For packaging, request specific output types (memo, table, Markdown, JSON) for easy export.</li>
-                        </ul>
-                      </div>
-                    </div>
-                    <p class="mt-3 text-slate-300"><strong>When to use:</strong> important communications, policy updates, proposals, or plans that benefit from options, structure, and iteration — with humans in the loop.</p>
                     """,
                 ),
             ],

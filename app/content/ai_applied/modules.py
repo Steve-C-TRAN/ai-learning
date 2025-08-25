@@ -235,6 +235,42 @@ def get_modules() -> List[Module]:
                 ModuleSection("Clarity & Context", "Be specific; give background so models understand the situation."),
                 ModuleSection("Constraints & Format", "State tone, length, and output format (bullets, table, letter, etc.)."),
                 ModuleSection("Practice", "Compare prompts across tools (CoPilot, ChatGPT, Claude, Gemini) and iterate."),
+                ModuleSection(
+                    title="Advanced: Ideate → Plan → Create",
+                    content="""
+                    <p>This advanced, <em>agentic</em> workflow uses an LLM to first <strong>ideate</strong> options, then <strong>plan</strong> the work, then <strong>create</strong> the deliverable — with tight human review in between.</p>
+                    <figure class="space-y-2 mt-2">
+                      <div class="mx-auto max-w-3xl md:max-w-5xl px-2 flex justify-center">
+                        <a href="/static/images/ideate_plan_create.svg" target="_blank" rel="noopener" title="Open full-size">
+                          <img src="/static/images/ideate_plan_create.svg" alt="Ideate, Plan, Create workflow diagram" class="block w-auto max-w-full h-auto object-contain max-h-[70vh] mx-auto rounded border border-slate-700/50 bg-slate-900" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'h-40 flex items-center justify-center text-xs bg-slate-800 rounded border border-slate-700/50',textContent:'Workflow diagram placeholder'}) )">
+                        </a>
+                      </div>
+                      <figcaption class="text-xs md:text-sm text-slate-400 text-center">Workflow: generate options → choose and plan → draft and refine with human review.</figcaption>
+                    </figure>
+                    <div class="mt-3 grid md:grid-cols-2 gap-4">
+                      <div class="bg-slate-800/50 border border-slate-700 rounded p-3">
+                        <h4 class="font-semibold">How to run it</h4>
+                        <ol class="list-decimal ml-6 space-y-1">
+                          <li><strong>Ideate:</strong> Ask for 3–5 approaches with pros/cons, risks, and required inputs.</li>
+                          <li><strong>Plan:</strong> Pick one; ask for objectives, stakeholders, steps, timelines, and success criteria.</li>
+                          <li><strong>Create:</strong> Provide your draft/notes and key excerpts; ask for a first draft in the required format.</li>
+                          <li><strong>Review:</strong> Have the LLM list uncertainties and assumptions; you edit and confirm sources.</li>
+                          <li><strong>Polish:</strong> Request tone, length, and formatting fixes (headings, tables, lists, alt text).</li>
+                        </ol>
+                      </div>
+                      <div class="bg-slate-800/50 border border-slate-700 rounded p-3">
+                        <h4 class="font-semibold">Prompting tips</h4>
+                        <ul class="list-disc ml-6 space-y-1">
+                          <li>State <em>audience</em>, <em>purpose</em>, and <em>constraints</em> (word count, style, must‑include points).</li>
+                          <li>Paste relevant excerpts; for accuracy, ask for citations or quotes from your snippets.</li>
+                          <li>Ask for a checklist you can verify before sending or publishing.</li>
+                          <li>For packaging, request specific output types (memo, table, Markdown, JSON) for easy export.</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <p class="mt-3 text-slate-300"><strong>When to use:</strong> important communications, policy updates, proposals, or plans that benefit from options, structure, and iteration — with humans in the loop.</p>
+                    """,
+                ),
             ],
         ),
         Module(
