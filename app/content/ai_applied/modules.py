@@ -1,4 +1,4 @@
-# app/content/modules2.py
+# app/content/ai_applied/modules.py
 # Defines Course 2 learning modules and sections for the C-TRAN AI Learning App
 
 from dataclasses import dataclass, field
