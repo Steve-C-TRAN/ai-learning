@@ -87,24 +87,31 @@ def get_modules() -> List[Module]:
             summary="From rules and classic ML to agentic systems.",
             sections=[
                 ModuleSection(
-                    title="From Rules to Learning: A Brief Timeline",
+                    title="How AI Got Here: Three Eras",
                     content="""
-                    <ul class="list-disc ml-6 space-y-2 sm:space-y-3">
-                      <li><strong>Rules & Classic ML (1980s–2010s):</strong> Expert systems (if‑then rules), regression, decision trees, and SVMs (Support Vector Machines) excel at narrow, structured problems with labeled features. <em>Examples:</em> spam filtering, credit scoring, demand forecasting, fraud detection.</li>
-                      <li><strong>Early Transfer/Foundation (2018–2020):</strong> ELMo (Embeddings from Language Models), ULMFiT (Universal Language Model Fine‑tuning), and BERT (Bidirectional Encoder Representations from Transformers) bring contextual embeddings and task transfer, enabling strong performance with less task‑specific data. <em>Examples:</em> sentiment analysis, named‑entity recognition, document classification, improved search/ranking.</li>
-                      <li><strong>2020 — GPT‑3:</strong> A very large language model (LLM) that signaled the emergence of high‑capability generative AI, enabling fluent long‑form text, few‑shot generalization, and broad task coverage. <em>Examples:</em> drafting emails and reports, summarization, translation, simple code generation, chat prototypes.</li>
-                      <li><strong>2023–Now — Agentic:</strong> Models plan, call tools/APIs (function calling), retrieve knowledge (RAG), and iterate with memory/reflect loops to complete multi‑step goals. <em>Examples:</em> multi‑step report drafting with data pulls, meeting scheduling, ticket triage with workflow triggers.</li>
+                    <ul class="list-disc ml-6 space-y-4">
+                      <li>
+                        <strong>Era 1 — Computers Follow Rules (1980s–2010s):</strong>
+                        Early AI worked by following rules that programmers wrote by hand. "If the email contains the word 'winner,' mark it spam." Useful for narrow, predictable tasks — but brittle. Change the rules of the world and the system breaks.
+                        <em class="block mt-1 text-slate-400">Examples: spam filters, credit scoring, fraud detection.</em>
+                      </li>
+                      <li>
+                        <strong>Era 2 — Computers Learn From Text (2018–2022):</strong>
+                        Instead of hand-coded rules, systems learned by reading enormous amounts of text. In 2020, GPT-3 showed that a model trained on enough text could write, reason, and answer questions in a genuinely useful way. This was the moment generative AI became real for everyday use.
+                        <em class="block mt-1 text-slate-400">Examples: drafting emails, summarizing documents, answering questions in plain English.</em>
+                      </li>
+                      <li>
+                        <strong>Era 3 — AI Takes Action (2023–Now):</strong>
+                        Today's models don't just respond to questions — they can break a goal into steps, use tools like search or calendars, and work toward a result with minimal hand-holding. This is called the "agentic" era.
+                        <em class="block mt-1 text-slate-400">Examples: booking meetings, drafting reports using live data, routing and triaging requests automatically.</em>
+                      </li>
                     </ul>
                     """,
                 ),
                 ModuleSection(
-                    title="Pioneers of AI",
+                    title="Pioneers Worth Knowing",
                     content="""
-                    <p>Today’s advances stand on decades of research. A few early pioneers:</p>
-                    <ul class="list-disc ml-6">
-                      <li><a class="text-cyan-300 underline" href="https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)" target="_blank" rel="noopener">John McCarthy</a> — coined the term “Artificial Intelligence,” organized the 1956 Dartmouth workshop.</li>
-                      <li><a class="text-cyan-300 underline" href="https://en.wikipedia.org/wiki/Karen_Sp%C3%A4rck_Jones" target="_blank" rel="noopener">Karen Spärck Jones</a> — pioneer of information retrieval (IDF), shaping modern search and natural language processing (NLP).</li>
-                    </ul>
+                    <p class="text-slate-400 text-sm">Today’s AI stands on decades of research. <a class="text-cyan-300 underline" href="https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)" target="_blank" rel="noopener">John McCarthy</a> coined the term "Artificial Intelligence" in 1956. <a class="text-cyan-300 underline" href="https://en.wikipedia.org/wiki/Karen_Sp%C3%A4rck_Jones" target="_blank" rel="noopener">Karen Spärck Jones</a> developed foundational ideas in how computers find relevant information — work that underpins modern search and today’s AI retrieval systems.</p>
                     """,
                 ),
                 ModuleSection(
@@ -115,7 +122,7 @@ def get_modules() -> List[Module]:
                       <div>
                         <h4 class="font-semibold">In plain English</h4>
                         <ul class="list-disc ml-6">
-                          <li>Give it a goal (“Draft a service alert based on today’s outage”).</li>
+                          <li>Give it a goal ("Draft a service alert based on today’s outage").</li>
                           <li>It figures out steps (read data → draft alert → ask for approval).</li>
                           <li>It uses tools (APIs, search, calendars) to get work done.</li>
                         </ul>
@@ -137,9 +144,9 @@ def get_modules() -> List[Module]:
                     title="Myths vs. Reality",
                     content="""
                     <ul class="list-disc ml-6">
-                      <li><strong>Myth:</strong> “LLMs know the truth.” <strong>Reality:</strong> They predict tokens; verify critical outputs.</li>
-                      <li><strong>Myth:</strong> “AI replaces everyone.” <strong>Reality:</strong> Best outcomes are human + AI teams.</li>
-                      <li><strong>Myth:</strong> “More prompts = better.” <strong>Reality:</strong> Clarity, context, and constraints matter most.</li>
+                      <li><strong>Myth:</strong> "LLMs know the truth." <strong>Reality:</strong> They predict tokens; verify critical outputs.</li>
+                      <li><strong>Myth:</strong> "AI replaces everyone." <strong>Reality:</strong> Best outcomes are human + AI teams.</li>
+                      <li><strong>Myth:</strong> "More prompts = better." <strong>Reality:</strong> Clarity, context, and constraints matter most.</li>
                     </ul>
                     """,
                 ),
@@ -150,7 +157,7 @@ def get_modules() -> List[Module]:
                       <li>Which 2–3 weekly decisions could be faster with a draft or summary?</li>
                       <li>Where do riders or staff wait for information that could be automated with review?</li>
                       <li>Which workflows are safe to pilot using non-sensitive data?</li>
-                      <li>What does a good “human-in-the-loop” checkpoint look like for our teams?</li>
+                      <li>What does a good "human-in-the-loop" checkpoint look like for our teams?</li>
                     </ul>
                     """,
                 ),
@@ -168,7 +175,7 @@ def get_modules() -> List[Module]:
                 ModuleSection(
                     title="What’s Next?",
                     content="""
-                    <p>Software engineering productivity is increasing rapidly, more autonomous agents will be capabale of self-improvement.</p>
+                    <p>Software engineering productivity is increasing rapidly, and more autonomous agents will be capable of handling complex, multi-step work with less human direction.</p>
                     """,
                 ),
             ],
@@ -179,33 +186,33 @@ def get_modules() -> List[Module]:
             summary="Foundation models, what LLMs are, how they work, where they shine and struggle — plus a quick mental picture.",
             sections=[
                 ModuleSection(
-                    title="Foundation Models (Definition)",
+                    title="You’ve Already Used One",
                     content="""
-                    <div class="bg-slate-800/60 border border-slate-700 rounded p-4">
-                      <p><strong>Foundation Model:</strong> a large model trained on broad, general‑purpose data (text, images, code, etc.) so it learns useful patterns that can be <em>adapted</em> to many tasks. You can use it as‑is (prompting), add your knowledge via <em>retrieval</em>, or <em>fine‑tune</em> it for specific styles and workflows.</p>
+                    <div class="bg-slate-800/60 border border-emerald-700/40 rounded p-4">
+                      <p class="text-emerald-300 font-semibold">Sound familiar?</p>
+                      <p class="mt-1">If you’ve used ChatGPT, you’ve already used an LLM. ChatGPT is built on GPT — a Large Language Model made by OpenAI. Claude, Gemini, and Microsoft Copilot are all LLMs too. They’re the same type of technology, just from different companies with different strengths.</p>
                     </div>
                     """,
                 ),
                 ModuleSection(
                     title="What LLMs Are (and Aren’t)",
                     content="""
-                    <p><strong>LLMs</strong> (Large Language Models) are a <em>type</em> of foundation model focused on language. They predict the next token (piece of text) extremely well, which lets them draft, summarize, translate, and reason in useful ways.</p>
+                    <p><strong>LLMs</strong> (Large Language Models) are AI systems trained to understand and generate text. They’re remarkably good at drafting, summarizing, translating, and reasoning — as long as you keep their limits in mind.</p>
                     <ul class="list-disc ml-6 mt-2">
-                      <li><strong>They are</strong> general language engines you steer with instructions (prompts).</li>
-                      <li><strong>They aren’t</strong> databases of truth — treat outputs as <em>drafts</em> and verify important facts.</li>
+                      <li><strong>They are</strong> general language engines you steer with plain-English instructions (called prompts).</li>
+                      <li><strong>They aren’t</strong> search engines or databases of truth — treat outputs as <em>drafts</em> and verify anything important.</li>
                     </ul>
                     """,
                 ),
                 ModuleSection(
-                    title="How They Work",
+                    title="How They Work (Plain English)",
                     content="""
                     <ul class="list-disc ml-6">
-                      <li><strong>Tokens:</strong> Text is broken into tokens; the model predicts the next token given context.</li>
-                      <li><strong>Transformers:</strong> The architecture uses <em>attention</em> to focus on relevant parts of the input for each prediction.</li>
-                      <li><strong>Pretraining:</strong> Learn patterns from large corpora; no task‑specific labels required.</li>
-                      <li><strong>Instruction‑tuning:</strong> Additional training makes models follow plain‑English instructions.</li>
-                      <li><strong>RAG (Retrieval‑Augmented Generation):</strong> Bring your documents at answer time for grounded responses.</li>
-                      <li><strong>Tool use:</strong> Some models can call functions/APIs (search, databases) to get facts or take actions.</li>
+                      <li><strong>Tokens:</strong> The model reads text in small chunks called tokens (roughly a word or part of a word). It predicts what should come next, one token at a time — like autocomplete, but far more powerful.</li>
+                      <li><strong>Training:</strong> The model learned by reading enormous amounts of text — books, websites, code. It got good at predicting what comes next in any kind of writing, which turns out to enable a lot of useful things.</li>
+                      <li><strong>Instructions:</strong> It was then taught to follow plain-English instructions, so you can just ask it what you need in natural language.</li>
+                      <li><strong>RAG (Retrieval-Augmented Generation):</strong> You can also give the model your own documents at the time you ask a question. It answers based on your content rather than just its training — great for internal policies, reports, or knowledge bases.</li>
+                      <li><strong>Tool use:</strong> Some models can also search the web, query databases, or take actions — not just answer questions.</li>
                     </ul>
                     """,
                 ),
@@ -441,7 +448,7 @@ def get_modules() -> List[Module]:
                     content="""
                     <div class="bg-slate-800/60 border border-slate-700 rounded p-4">
                       <ul class="list-disc ml-6">
-                        <li><strong>Role & task:</strong> “You are a comms specialist. Draft a one‑page rider notice.”</li>
+                        <li><strong>Role & task:</strong> "You are a comms specialist. Draft a one‑page rider notice."</li>
                         <li><strong>Context:</strong> paste key excerpts, numbers, constraints (don’t include PII).</li>
                         <li><strong>Requirements:</strong> audience, tone, length, must‑include points, sources if needed.</li>
                         <li><strong>Format:</strong> bullets/table/memo/JSON; provide a tiny example when possible.</li>
@@ -504,7 +511,7 @@ def get_modules() -> List[Module]:
                       <p>Use LLMs to summarize patterns and surface hypotheses from notes and historical summaries — not to replace schedulers.</p>
                       <ul class="list-disc ml-6">
                         <li><strong>Pattern insights:</strong> summarize recurring issues from operator notes and incident logs.</li>
-                        <li><strong>Scenario narratives:</strong> draft “what‑if” considerations for proposed timetable adjustments.</li>
+                        <li><strong>Scenario narratives:</strong> draft "what‑if" considerations for proposed timetable adjustments.</li>
                         <li><strong>Change summaries:</strong> produce stakeholder updates describing rationale, benefits, and risks.</li>
                       </ul>
                       <p class="text-slate-300 text-sm"><strong>Guardrails:</strong> avoid PII; keep source excerpts; decisions remain with scheduling professionals.</p>
@@ -556,9 +563,9 @@ def get_modules() -> List[Module]:
                     title="Start with a clear task (Role + Goal)",
                     content="""
                     <ul class="list-disc ml-6">
-                      <li><strong>Role:</strong> “You are a communications specialist at a public transit agency.”</li>
-                      <li><strong>Goal:</strong> “Draft a 150–200 word rider notice about a weekend service change.”</li>
-                      <li><strong>Audience & tone:</strong> “General riders; plain language; friendly and factual.”</li>
+                      <li><strong>Role:</strong> "You are a communications specialist at a public transit agency."</li>
+                      <li><strong>Goal:</strong> "Draft a 150–200 word rider notice about a weekend service change."</li>
+                      <li><strong>Audience & tone:</strong> "General riders; plain language; friendly and factual."</li>
                     </ul>
                     <p class="mt-2 text-slate-300 text-sm">One sentence for each is enough. Clear beats clever.</p>
                     """,
@@ -568,9 +575,9 @@ def get_modules() -> List[Module]:
                     content="""
                     <p>Copy in short, relevant snippets the model should use. Call out what is most important.</p>
                     <ul class="list-disc ml-6">
-                      <li>“Key facts: Route 105 detour Sat–Sun (8am–6pm); stops 5412 and 5414 closed; use stop 5420.”</li>
-                      <li>“Policy excerpt (quote): ‘Operators must …’ Use this wording where appropriate.”</li>
-                      <li>“Do <em>not</em> mention internal ticket numbers or staff names.”</li>
+                      <li>"Key facts: Route 105 detour Sat–Sun (8am–6pm); stops 5412 and 5414 closed; use stop 5420."</li>
+                      <li>"Policy excerpt (quote): ‘Operators must …’ Use this wording where appropriate."</li>
+                      <li>"Do <em>not</em> mention internal ticket numbers or staff names."</li>
                     </ul>
                     <p class="mt-2 text-slate-300 text-sm">When accuracy matters, ask the model to <strong>quote</strong> or <strong>cite</strong> from your pasted snippets.</p>
                     """,
@@ -579,12 +586,12 @@ def get_modules() -> List[Module]:
                     title="Set constraints and format",
                     content="""
                     <ul class="list-disc ml-6">
-                      <li><strong>Length:</strong> “150–200 words” or “5 bullets, max 14 words each.”</li>
-                      <li><strong>Structure:</strong> “Headings: What’s changing, When, Affected stops, Alternatives.”</li>
-                      <li><strong>Output type:</strong> “Give as a bulleted list” or “Return JSON with keys: title, body, next_steps.”</li>
-                      <li><strong>Accessibility:</strong> “Plain language; include alt text for any images.”</li>
+                      <li><strong>Length:</strong> "150–200 words" or "5 bullets, max 14 words each."</li>
+                      <li><strong>Structure:</strong> "Headings: What’s changing, When, Affected stops, Alternatives."</li>
+                      <li><strong>Output type:</strong> "Give as a bulleted list" or "Return JSON with keys: title, body, next_steps."</li>
+                      <li><strong>Accessibility:</strong> "Plain language; include alt text for any images."</li>
                     </ul>
-                    <p class="mt-2 text-slate-300 text-sm">See “Formatting & Packaging” for exporting to Word/PowerPoint/Excel via structured output.</p>
+                    <p class="mt-2 text-slate-300 text-sm">See "Formatting & Packaging" for exporting to Word/PowerPoint/Excel via structured output.</p>
                     """,
                 ),
                 ModuleSection(
@@ -595,7 +602,7 @@ def get_modules() -> List[Module]:
 Title: Elevator maintenance this Friday
 Body: On Friday, March 12, the north garage elevator will be offline from 10am–2pm
 for maintenance. Please use the south elevator or stairs. We appreciate your patience.</code></pre>
-                    <p class="text-slate-300 text-sm mt-2">Then say: “Use the format and tone shown in the example.”</p>
+                    <p class="text-slate-300 text-sm mt-2">Then say: "Use the format and tone shown in the example."</p>
                     """,
                 ),
                 ModuleSection(
@@ -603,8 +610,8 @@ for maintenance. Please use the south elevator or stairs. We appreciate your pat
                     content="""
                     <p>For trickier tasks, ask the model to outline steps first, then produce the draft.</p>
                     <ul class="list-disc ml-6">
-                      <li>“First list the sections you’ll include and why (1–2 bullets each). Then draft the notice.”</li>
-                      <li>“If any required detail is missing, list questions before drafting.”</li>
+                      <li>"First list the sections you’ll include and why (1–2 bullets each). Then draft the notice."</li>
+                      <li>"If any required detail is missing, list questions before drafting."</li>
                     </ul>
                     """,
                 ),
@@ -612,9 +619,9 @@ for maintenance. Please use the south elevator or stairs. We appreciate your pat
                     title="Ask for a self‑check",
                     content="""
                     <ul class="list-disc ml-6">
-                      <li>“After the draft, list 3 uncertainties or assumptions you made.”</li>
-                      <li>“Provide a 5‑item checklist I can verify (dates, stops, times, links, approvals).”</li>
-                      <li>“Flag anything that might confuse riders.”</li>
+                      <li>"After the draft, list 3 uncertainties or assumptions you made."</li>
+                      <li>"Provide a 5‑item checklist I can verify (dates, stops, times, links, approvals)."</li>
+                      <li>"Flag anything that might confuse riders."</li>
                     </ul>
                     """,
                 ),
@@ -622,11 +629,11 @@ for maintenance. Please use the south elevator or stairs. We appreciate your pat
                     title="Iterate: refine tone and length",
                     content="""
                     <ul class="list-disc ml-6">
-                      <li>“Shorten by ~20% and keep the most important details up front.”</li>
-                      <li>“Rewrite for plain language (8th‑grade reading level) and remove jargon.”</li>
-                      <li>“Give a Spanish translation after the English version.”</li>
+                      <li>"Shorten by ~20% and keep the most important details up front."</li>
+                      <li>"Rewrite for plain language (8th‑grade reading level) and remove jargon."</li>
+                      <li>"Give a Spanish translation after the English version."</li>
                     </ul>
-                    <p class="mt-2 text-slate-300 text-sm">Small, specific edits work better than “make it better.”</p>
+                    <p class="mt-2 text-slate-300 text-sm">Small, specific edits work better than "make it better."</p>
                     """,
                 ),
                 ModuleSection(
@@ -642,16 +649,39 @@ Process: (1) list sections or questions, (2) draft, (3) self‑check with 3 unce
                     """,
                 ),
                 ModuleSection(
-                    title="Quick before/after example",
+                    title="Everyday examples",
+                    content="""
+                    <p class="text-slate-400 text-sm mb-3">These patterns work in ChatGPT, Copilot, Claude, or Gemini — not just for transit work.</p>
+                    <div class="space-y-4">
+                      <div class="bg-slate-800/50 border border-slate-700 rounded p-3">
+                        <h4 class="font-semibold mb-1">Drafting a difficult email</h4>
+                        <p class="text-sm text-slate-300">Instead of: <em>"Write an email about the budget."</em></p>
+                        <p class="text-sm mt-1">Try: <em>"You are a project manager. Draft a 150-word email to a senior director explaining that our project needs a 2-week extension due to a vendor delay. Tone: professional and direct. Include: what changed, why, and our revised timeline."</em></p>
+                      </div>
+                      <div class="bg-slate-800/50 border border-slate-700 rounded p-3">
+                        <h4 class="font-semibold mb-1">Summarizing a long document</h4>
+                        <p class="text-sm text-slate-300">Instead of: <em>"Summarize this."</em></p>
+                        <p class="text-sm mt-1">Try: <em>"Summarize the text below for a non-technical manager. Use 4 bullets. Each bullet should be one sentence. Focus on decisions that need to be made, not background detail."</em></p>
+                      </div>
+                      <div class="bg-slate-800/50 border border-slate-700 rounded p-3">
+                        <h4 class="font-semibold mb-1">Rewriting for a different audience</h4>
+                        <p class="text-sm text-slate-300">Instead of: <em>"Make this simpler."</em></p>
+                        <p class="text-sm mt-1">Try: <em>"Rewrite the following for someone with no technical background. Plain language, 8th-grade reading level, no jargon. Keep the key message but cut the length by about 30%."</em></p>
+                      </div>
+                    </div>
+                    """,
+                ),
+                ModuleSection(
+                    title="Quick before/after example (transit)",
                     content="""
                     <div class="grid md:grid-cols-2 gap-4">
                       <div class="bg-slate-800/50 border border-slate-700 rounded p-3">
                         <h4 class="font-semibold mb-2">Vague prompt</h4>
-                        <p>“Write something about the service change.”</p>
+                        <p>"Write something about the service change."</p>
                       </div>
                       <div class="bg-slate-800/50 border border-slate-700 rounded p-3">
                         <h4 class="font-semibold mb-2">Clear prompt</h4>
-                        <p>“You are a C‑TRAN comms specialist. Draft a 150–200 word rider notice about the Route 105 weekend detour. Audience: general riders; tone: plain language. Key facts: detour Sat–Sun 8am–6pm; stops 5412 and 5414 closed; use stop 5420; normal schedule resumes Monday. Headings: What’s changing, When, Affected stops, Alternatives. After the draft, list 3 uncertainties and a 5‑item verification checklist.”</p>
+                        <p>"You are a C‑TRAN comms specialist. Draft a 150–200 word rider notice about the Route 105 weekend detour. Audience: general riders; tone: plain language. Key facts: detour Sat–Sun 8am–6pm; stops 5412 and 5414 closed; use stop 5420; normal schedule resumes Monday. Headings: What’s changing, When, Affected stops, Alternatives. After the draft, list 3 uncertainties and a 5‑item verification checklist."</p>
                       </div>
                     </div>
                     """,
@@ -678,9 +708,9 @@ Process: (1) list sections or questions, (2) draft, (3) self‑check with 3 unce
                     content="""
                     <p>Objective: Get a clear, short summary with next steps.</p>
                     <ul class="list-disc ml-6">
-                      <li>Prompt: “Summarize the text below for a coworker. Include 3 bullets and 2 next steps.”</li>
+                      <li>Prompt: "Summarize the text below for a coworker. Include 3 bullets and 2 next steps."</li>
                       <li>Paste your email or note (remove PII).</li>
-                      <li>Ask: “Make it plain language and 120–150 words.”</li>
+                      <li>Ask: "Make it plain language and 120–150 words."</li>
                     </ul>
                     <p class="text-sm text-slate-400">Where to try: <a class="text-cyan-300 underline" href="https://copilot.microsoft.com" target="_blank" rel="noopener">Microsoft Copilot</a>, <a class="text-cyan-300 underline" href="https://chat.openai.com" target="_blank" rel="noopener">ChatGPT</a>, <a class="text-cyan-300 underline" href="https://claude.ai" target="_blank" rel="noopener">Claude</a>, <a class="text-cyan-300 underline" href="https://gemini.google.com/app" target="_blank" rel="noopener">Gemini</a></p>
                     """,
@@ -690,9 +720,9 @@ Process: (1) list sections or questions, (2) draft, (3) self‑check with 3 unce
                     content="""
                     <p>Objective: Create a clear, public‑facing update.</p>
                     <ul class="list-disc ml-6">
-                      <li>Role & goal: “You are a transit comms specialist. Draft a 150–200 word rider notice.”</li>
+                      <li>Role & goal: "You are a transit comms specialist. Draft a 150–200 word rider notice."</li>
                       <li>Facts: route, dates/times, affected stops, alternatives (paste brief snippets).</li>
-                      <li>Format: “Headings: What’s changing, When, Affected stops, Alternatives.”</li>
+                      <li>Format: "Headings: What’s changing, When, Affected stops, Alternatives."</li>
                     </ul>
                     <p class="text-sm text-slate-400">Tip: Ask for a 5‑item verification checklist.</p>
                     """,
@@ -702,9 +732,9 @@ Process: (1) list sections or questions, (2) draft, (3) self‑check with 3 unce
                     content="""
                     <p>Objective: Make content easier to read.</p>
                     <ul class="list-disc ml-6">
-                      <li>“Rewrite in plain language at 8th‑grade level.”</li>
-                      <li>“Shorten by ~20% and keep key points up top.”</li>
-                      <li>“Provide a Spanish translation below the English.”</li>
+                      <li>"Rewrite in plain language at 8th‑grade level."</li>
+                      <li>"Shorten by ~20% and keep key points up top."</li>
+                      <li>"Provide a Spanish translation below the English."</li>
                     </ul>
                     """,
                 ),
@@ -713,7 +743,7 @@ Process: (1) list sections or questions, (2) draft, (3) self‑check with 3 unce
                     content="""
                     <p>Objective: Capture structured info from text.</p>
                     <ul class="list-disc ml-6">
-                      <li>Prompt: “From the text below, return a CSV with columns: name, route, date, issue.”</li>
+                      <li>Prompt: "From the text below, return a CSV with columns: name, route, date, issue."</li>
                       <li>Paste a short note or form text.</li>
                       <li>Ask to validate formats (dates, route numbers).</li>
                     </ul>
@@ -725,8 +755,8 @@ Process: (1) list sections or questions, (2) draft, (3) self‑check with 3 unce
                     content="""
                     <p>Objective: Tag and triage messages consistently.</p>
                     <ul class="list-disc ml-6">
-                      <li>Categories: “fares, passes, accessibility, schedule, complaint, compliment, other.”</li>
-                      <li>Prompt: “Return JSON: {category, urgency: low|med|high, suggested_team}.”</li>
+                      <li>Categories: "fares, passes, accessibility, schedule, complaint, compliment, other."</li>
+                      <li>Prompt: "Return JSON: {category, urgency: low|med|high, suggested_team}."</li>
                       <li>Paste one short message to start.</li>
                     </ul>
                     """,

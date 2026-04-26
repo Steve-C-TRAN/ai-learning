@@ -165,31 +165,12 @@
   let currentQ = null;
   let quizCompleted = false;
 
-  function updateNextButtonForCompletion() {
-    if (!nextBtn) return;
-    nextBtn.textContent = nextModuleUrl ? 'Complete & Next Module' : 'Complete';
-    nextBtn.className = 'px-4 py-2 rounded bg-emerald-600 hover:bg-emerald-700';
-  }
-
   async function loadQuestion() {
     if (!nextBtn) return;
 
-    if (quizCompleted) {
-      // Mark complete and navigate (or back to course/ home if last)
-      try {
-        await fetch('/api/progress', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ session_id: sessionId, module_slug: storageKey, completed: true })
-        });
-      } catch {}
-      window.location.href = nextModuleUrl || courseUrl || '/';
-      return;
-    }
-
     feedbackEl.textContent = '';
     optionsEl.innerHTML = '';
-    promptEl.textContent = 'Loading question...';
+    promptEl.innerHTML = '<span class="animate-pulse text-slate-400">Loading…</span>';
 
     const res = await fetch(`${quizEndpoint}?session_id=${encodeURIComponent(sessionId)}`);
     const payload = await res.json();
@@ -204,15 +185,25 @@
 
     if (payload.completed) {
       quizCompleted = true;
-      promptEl.textContent = 'All questions answered correctly!';
+      fetch('/api/progress', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ session_id: sessionId, module_slug: storageKey, completed: true })
+      }).catch(() => {});
+      promptEl.innerHTML = '<span class="text-emerald-400 font-semibold">&#9989; All questions answered correctly! This module is complete.</span>';
       optionsEl.innerHTML = '';
-      updateNextButtonForCompletion();
+      feedbackEl.textContent = '';
+      nextBtn.style.display = 'none';
+      document.querySelectorAll('.next-module-link').forEach(link => {
+        link.classList.add('ring-2', 'ring-emerald-300', 'ring-offset-1', 'ring-offset-slate-950');
+      });
       return;
     }
 
     if (!payload.data) {
       promptEl.textContent = 'No questions available.';
       nextBtn.disabled = true;
+      nextBtn.classList.add('opacity-40', 'cursor-not-allowed');
       return;
     }
 

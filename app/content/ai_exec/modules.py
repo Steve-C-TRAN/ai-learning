@@ -265,6 +265,10 @@ def get_modules() -> List[Module]:
                 ModuleSection("Classification & Routing", "Tag tickets, triage requests, route workflows automatically."),
                 ModuleSection("Generation", "Draft emails, reports, plans, and code with guidance and structure."),
                 ModuleSection("Analysis & Reports", "Assist with data interpretation and quick narrative reports."),
+                ModuleSection(
+                    "Full Details",
+                    '<p class="text-slate-400">For in-depth examples, prompting patterns, and hands-on exercises for each of these patterns, see the <strong>AI Foundations</strong> course — specifically the <em>Ways to Use Foundation Models</em> and <em>Prompting Basics</em> modules.</p>'
+                ),
             ],
         ),
         Module(
@@ -275,6 +279,10 @@ def get_modules() -> List[Module]:
                 ModuleSection("Coding Assistants", "Generate code from descriptions, accelerate boilerplate, and suggest fixes."),
                 ModuleSection("Debugging & Guidance", "Explain errors, propose patches, walk through configuration tasks."),
                 ModuleSection("Knowledge Search", "Answer questions from large KBs and playbooks quickly."),
+                ModuleSection(
+                    "Go Deeper",
+                    '<p class="text-slate-400">For a detailed, hands-on guide to AI-assisted development — including VS Code setup, Copilot, Claude, agentic workflows, and a Flask lab — see the <strong>Coding with AI</strong> course.</p>'
+                ),
             ],
         ),
         Module(

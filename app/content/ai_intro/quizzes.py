@@ -66,61 +66,27 @@ QUIZZES: Dict[str, List[QuizQuestion]] = {
     "current-models": [
         QuizQuestion(
             id="models-1",
-            prompt="Which vendors are associated with Claude and Gemini respectively?",
+            prompt="ChatGPT is made by OpenAI. Which company makes Claude?",
             options={
-                "a": "OpenAI and Google",
-                "b": "Anthropic and Google",
-                "c": "Meta and OpenAI",
-                "d": "Mistral and Anthropic"
-            },
-            correct="b"
-        ),
-        QuizQuestion(
-            id="models-2",
-            prompt="Grok is developed by which organization?",
-            options={
-                "a": "xAI",
-                "b": "Deepseek",
-                "c": "OpenAI",
-                "d": "Mistral"
-            },
-            correct="a"
-        ),
-        QuizQuestion(
-            id="models-3",
-            prompt="Which vendor offers the Gemini 2.5 family of models (Pro, Flash, Flash‑Lite)?",
-            options={
-                "a": "OpenAI",
+                "a": "Google",
                 "b": "Anthropic",
-                "c": "Google",
-                "d": "Mistral",
+                "c": "Meta",
+                "d": "Microsoft"
             },
-            correct="c",
-            help="Gemini is Google DeepMind's family; 2.5 is the current generation with Pro/Flash variants."
-        ),
-        QuizQuestion(
-            id="models-4",
-            prompt="Llama 4 models are primarily associated with which organization?",
-            options={
-                "a": "Meta",
-                "b": "xAI",
-                "c": "DeepSeek",
-                "d": "Anthropic",
-            },
-            correct="a",
-            help="Llama is Meta's open‑weight model family."
+            correct="b",
+            help="Claude is made by Anthropic. Google makes Gemini; Meta makes Llama; Microsoft licenses OpenAI's models for Copilot."
         ),
         QuizQuestion(
             id="models-5",
-            prompt="A team needs strong reasoning with enterprise safety controls. Which model family is commonly chosen?",
+            prompt="Your team needs an AI assistant with strong safety controls for handling sensitive work documents. What should you look for?",
             options={
-                "a": "Claude (Anthropic)",
-                "b": "Grok (xAI)",
-                "c": "Llama (Meta)",
-                "d": "Codestral (Mistral)",
+                "a": "The newest model regardless of vendor",
+                "b": "A model with enterprise safety features and data privacy controls",
+                "c": "The cheapest available option",
+                "d": "An open-source model with no restrictions",
             },
-            correct="a",
-            help="Claude Opus/Sonnet emphasize reasoning and safety with strong enterprise features."
+            correct="b",
+            help="For sensitive work content, prioritize enterprise-grade tools with clear data privacy policies — like Microsoft 365 Copilot or Claude for Enterprise."
         ),
     ],
     "delivery-models": [
@@ -150,25 +116,39 @@ QUIZZES: Dict[str, List[QuizQuestion]] = {
     "llms": [
         QuizQuestion(
             id="llms-1",
-            prompt="Which is a key limitation to consider when using LLMs?",
+            prompt="Which is a key limitation to keep in mind when using LLMs like ChatGPT?",
             options={
                 "a": "They cannot summarize text",
-                "b": "They always require GPUs",
-                "c": "They may hallucinate or be confidently wrong",
-                "d": "They cannot follow any instructions"
+                "b": "They always require a paid subscription",
+                "c": "They can be confidently wrong — making up plausible-sounding information",
+                "d": "They can only answer questions in English"
             },
-            correct="c"
+            correct="c",
+            help="This is called 'hallucination.' LLMs predict what text should come next, not what is factually true. Always verify important facts."
         ),
         QuizQuestion(
             id="llms-2",
-            prompt="What do LLMs predict during generation?",
+            prompt="You asked an AI to summarize a contract and it added a clause that wasn't in the original document. What happened?",
             options={
-                "a": "The next database row",
-                "b": "The next token based on context",
-                "c": "The next image frame",
-                "d": "The next network packet"
+                "a": "The AI improved the contract for you",
+                "b": "The AI hallucinated — it confidently invented something that wasn't there",
+                "c": "The original contract was missing the clause",
+                "d": "You used the wrong type of AI"
             },
-            correct="b"
+            correct="b",
+            help="This is a hallucination. LLMs generate plausible text, not verified facts. Always compare AI output against your source material for anything important."
+        ),
+        QuizQuestion(
+            id="llms-3",
+            prompt="Your coworker says 'The AI said it, so it must be true.' What's the best response?",
+            options={
+                "a": "Agree — AI models are trained on verified facts",
+                "b": "Only older AI models make mistakes; newer ones are always accurate",
+                "c": "AI can be confidently wrong; important facts always need human verification",
+                "d": "AI is never reliable and shouldn't be used at work"
+            },
+            correct="c",
+            help="LLMs predict plausible text, not verified truth. Use AI output as a starting point, and verify anything that matters."
         ),
     ],
     "use-foundation-models": [
@@ -222,60 +202,77 @@ QUIZZES: Dict[str, List[QuizQuestion]] = {
     "transit-use-cases": [
         QuizQuestion(
             id="transit-1",
-            prompt="Which is a plausible rider support use case?",
+            prompt="Which is a realistic way AI can help with rider support today?",
             options={
-                "a": "Predicting lottery numbers",
-                "b": "Assisting with service alerts and trip planning",
-                "c": "Issuing legal fines",
-                "d": "Altering union contracts"
+                "a": "Automatically publishing service alerts without any human review",
+                "b": "Drafting service alerts from operations notes for a supervisor to approve before posting",
+                "c": "Making real-time routing decisions without operator input",
+                "d": "Replacing the customer service team entirely"
             },
-            correct="b"
+            correct="b",
+            help="AI works best as a drafting assistant here — a human reviews and approves before anything goes public."
         ),
         QuizQuestion(
             id="transit-2",
-            prompt="Scheduling support could include which capability?",
+            prompt="You’re using ChatGPT at work and want to paste in a rider complaint that includes their name, phone number, and address. Should you?",
             options={
-                "a": "Altering tax codes",
-                "b": "Pattern insights from history and conditions",
-                "c": "Issuing driver’s licenses",
-                "d": "Replacing safety protocols"
+                "a": "Yes — more detail helps the AI give better answers",
+                "b": "Only if it’s a work computer",
+                "c": "No — remove personal information before pasting into any public AI tool",
+                "d": "Yes — ChatGPT encrypts and deletes everything automatically"
             },
-            correct="b"
+            correct="c",
+            help="Avoid pasting personally identifiable information (PII) into public AI tools. Remove names, addresses, and contact details before using AI to help draft a response."
         ),
         QuizQuestion(
             id="transit-3",
-            prompt="Which guardrail is appropriate for transit AI initiatives?",
+            prompt="Which guardrail is most important when using AI for transit operations?",
             options={
-                "a": "Ignore privacy to move faster",
-                "b": "Coordinate with union workforce where relevant",
-                "c": "Publish sensitive logs externally",
-                "d": "Bypass data governance"
+                "a": "Move as fast as possible and fix problems later",
+                "b": "Keep humans in the loop for decisions that affect riders or staff",
+                "c": "Only use AI for tasks that have never been done before",
+                "d": "Avoid AI entirely until it is 100% accurate"
             },
-            correct="b"
+            correct="b",
+            help="Human oversight is the key guardrail. AI is a powerful assistant, but consequential decisions — public communications, safety, staffing — should have a person reviewing and approving."
         ),
     ],
     "prompting-basics": [
         QuizQuestion(
             id="prompt-1",
-            prompt="Which practice generally improves prompt outcomes?",
+            prompt="Which practice generally gets better results from AI tools like ChatGPT?",
             options={
-                "a": "Avoiding any context to keep prompts short",
-                "b": "Clearly stating role, objective, and desired format",
+                "a": "Keeping prompts as short as possible",
+                "b": "Clearly stating the role, goal, audience, and format you want",
                 "c": "Asking multiple unrelated questions at once",
-                "d": "Using only one-word prompts"
+                "d": "Using technical jargon so the AI knows you're serious"
             },
-            correct="b"
+            correct="b",
+            help="Clear context — who you are, what you need, who it's for, and how you want it — gives the model what it needs to produce a useful response."
         ),
         QuizQuestion(
             id="prompt-2",
-            prompt="What should you do when you need a specific output structure?",
+            prompt="You want the AI to write a formal email to a senior leader. What's the most important thing to include in your prompt?",
             options={
-                "a": "Let the model guess",
-                "b": "Explicitly specify the format (e.g., bullets, table)",
-                "c": "Add emojis",
-                "d": "Ask for the longest response"
+                "a": "Your login credentials",
+                "b": "The role, goal, audience, tone, and key facts",
+                "c": "As many keywords as possible",
+                "d": "The full history of your organization"
             },
-            correct="b"
+            correct="b",
+            help="Specifying role, goal, audience, tone, and key facts gives the model the context it needs to produce a useful draft on the first try."
+        ),
+        QuizQuestion(
+            id="prompt-3",
+            prompt="The AI gives you a response that's too long and too formal. What's the best next step?",
+            options={
+                "a": "Give up and write it yourself",
+                "b": "Accept it since AI output shouldn't be edited",
+                "c": "Refine your prompt: 'Shorten by 30% and use a friendly, plain-language tone'",
+                "d": "Switch to a different AI immediately"
+            },
+            correct="c",
+            help="Iteration is normal and expected. Small, specific refinements work much better than starting over or accepting a poor output."
         ),
     ],
     "image-examples": [
@@ -294,58 +291,63 @@ QUIZZES: Dict[str, List[QuizQuestion]] = {
     "final": [
         QuizQuestion(
             id="final-1",
-            prompt="For C-TRAN, which is an appropriate guardrail when using public AI tools?",
+            prompt="Which is the right approach when using public AI tools like ChatGPT for work tasks?",
             options={
-                "a": "Include PII for better personalization",
-                "b": "Share sensitive operational data for more context",
-                "c": "Avoid PII/sensitive data; prefer business-approved tools",
-                "d": "Copy internal passwords to improve access"
+                "a": "Include rider names and addresses so the AI can personalize responses",
+                "b": "Avoid pasting PII or sensitive data; use business-approved tools for operational content",
+                "c": "Share internal passwords to give the AI access to your systems",
+                "d": "Skip human review since AI output is reliable enough for public posts"
             },
-            correct="c"
-        ),
-        QuizQuestion(
-            id="final-2",
-            prompt="Which delivery option is best for privacy/offline constraints?",
-            options={
-                "a": "Cloud API only",
-                "b": "On-device models",
-                "c": "Public forum posts",
-                "d": "Manual spreadsheets"
-            },
-            correct="b"
+            correct="b",
+            help="Public AI tools are not a secure environment for sensitive data. Remove PII before using them, and use approved enterprise tools when the work involves confidential content."
         ),
         QuizQuestion(
             id="final-3",
-            prompt="A key limitation of LLMs to keep in mind is:",
+            prompt="Which of these is AI currently best suited to help with at work?",
             options={
-                "a": "They never make mistakes",
-                "b": "They always cite sources",
-                "c": "They can hallucinate details",
-                "d": "They require gigabit internet"
+                "a": "Making final decisions on safety-critical operations without human review",
+                "b": "Drafting, summarizing, and rewriting content for a human to review and finalize",
+                "c": "Running your department without any oversight",
+                "d": "Guaranteeing factual accuracy in all outputs"
             },
-            correct="c"
+            correct="b",
+            help="AI excels at drafting and summarizing — with humans in the loop to verify and finalize. It should augment judgment, not replace it."
         ),
         QuizQuestion(
             id="final-4",
-            prompt="Which task aligns with 'classification & routing'?",
+            prompt="Which task fits the 'classification and routing' pattern?",
             options={
                 "a": "Drafting a press release",
-                "b": "Tagging and triaging incoming requests",
-                "c": "Rendering 3D scenes",
-                "d": "Designing bus livery"
+                "b": "Tagging and triaging incoming requests by category and urgency",
+                "c": "Rendering 3D graphics",
+                "d": "Designing a new bus route"
             },
-            correct="b"
+            correct="b",
+            help="Classification and routing means labeling or sorting inputs — like tagging a support ticket as 'fares / high urgency' so it reaches the right team."
         ),
         QuizQuestion(
             id="final-5",
-            prompt="A transit-relevant use case from this program is:",
+            prompt="An AI gives you a response that sounds completely confident but contains a fact you know is wrong. What should you do?",
             options={
-                "a": "Editing source code licenses",
-                "b": "Service alerts and rider trip assistance",
-                "c": "Issuing parking citations",
-                "d": "Changing labor laws"
+                "a": "Trust it — AI models don't make things up",
+                "b": "Use it anyway since the rest is probably correct",
+                "c": "Correct the error, verify the surrounding facts, and treat the whole output as a draft",
+                "d": "Report a bug to the AI company"
             },
-            correct="b"
+            correct="c",
+            help="Hallucination is a known LLM limitation. If one fact is wrong, others may be too. Always treat AI output as a draft and verify anything consequential."
+        ),
+        QuizQuestion(
+            id="final-6",
+            prompt="What is the most important habit when using AI for work tasks?",
+            options={
+                "a": "Use the most expensive model available",
+                "b": "Keep humans in the loop — review outputs before acting or publishing",
+                "c": "Always use AI without editing so you get the 'true' answer",
+                "d": "Avoid telling coworkers you used AI"
+            },
+            correct="b",
+            help="Human oversight is the core guardrail. AI is a powerful assistant, but you are responsible for what goes out the door."
         ),
     ],
 }
