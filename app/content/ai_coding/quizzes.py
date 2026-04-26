@@ -1,5 +1,5 @@
 # app/content/quizzes.py
-# Updated quizzes aligned to "Coding with AI" modules
+# Updated quizzes aligned to the Claude Code in VS Code, template-first course
 
 from dataclasses import dataclass
 from typing import Dict, List, Optional
@@ -17,121 +17,121 @@ QUIZZES: Dict[str, List[QuizQuestion]] = {
     "introduction": [
         QuizQuestion(
             id="intro-1",
-            prompt="Which outcome is emphasized in this program?",
+            prompt="What should happen before Claude Code starts implementing a production feature?",
             options={
-                "a": "Fully automating production without tests",
-                "b": "Configuring VS Code and Copilot safely and effectively",
-                "c": "Using only one model for every task",
-                "d": "Skipping code review to move faster"
+                "a": "Ask it to invent a fresh architecture from scratch",
+                "b": "Start from the approved template architecture and identify safe extension points",
+                "c": "Disable tests so the model can move faster",
+                "d": "Let it edit any file in the repo without constraints"
             },
             correct="b",
-            help="Configuration plus governance and quality are foundational."
+            help="The course is explicitly template-first: Claude Code extends an approved architecture rather than creating one ad hoc."
         ),
         QuizQuestion(
             id="intro-2",
-            prompt="Which practice is recommended when using AI to code at an agency?",
+            prompt="What is an approved template architecture in this course?",
             options={
-                "a": "Share internal tokens in prompts for context",
-                "b": "Record model-assisted changes and verify with tests",
-                "c": "Disable workspace trust for convenience",
-                "d": "Accept all suggestions without review"
+                "a": "A starter repo plus the organization&apos;s agreed stack, structure, controls, and delivery patterns",
+                "b": "Any project layout Claude Code prefers on a given day",
+                "c": "A prompt library with no code or deployment conventions",
+                "d": "A blank workspace that the model fills in from scratch"
             },
-            correct="b"
+            correct="a"
         ),
     ],
     "vscode-setup": [
         QuizQuestion(
             id="vsc-1",
-            prompt="Which file should generally be excluded from prompts, version control, and telemetry?",
+            prompt="Which workspace setup is preferred before using Claude Code on a real task?",
+            options={
+                "a": "An empty folder with no repo context",
+                "b": "The approved repository or a project derived from the approved template",
+                "c": "A downloads directory containing random files",
+                "d": "A workspace with secrets committed so the model can see them"
+            },
+            correct="b",
+            help="Open the real repo or template-derived project so the model inherits the existing architecture and standards."
+        ),
+        QuizQuestion(
+            id="vsc-2",
+            prompt="Which file should still be excluded from prompts, version control, and model sharing?",
             options={
                 "a": "README.md",
                 "b": "requirements.txt",
                 "c": ".env",
-                "d": "LICENSE"
+                "d": "tests/test_app.py"
             },
-            correct="c",
-            help="Secrets belong in .env or secret stores and must not be shared with models."
-        ),
-        QuizQuestion(
-            id="vsc-2",
-            prompt="What is a good practice for reusable prompts in a repo?",
-            options={
-                "a": "Keep them only in personal notes",
-                "b": "Create a /prompts folder under version control",
-                "c": "Paste them into random issues",
-                "d": "Rely on memory"
-            },
-            correct="b"
+            correct="c"
         ),
     ],
     "copilot-basics": [
         QuizQuestion(
             id="cpl-1",
-            prompt="Which Copilot feature helps navigate and modify code across a workspace?",
+            prompt="What is the best first prompt to Claude Code when entering an existing repo?",
             options={
-                "a": "Inline suggestions only",
-                "b": "Copilot Chat with @workspace context",
-                "c": "Random code generator",
-                "d": "Unattended shell access"
+                "a": "Rewrite the whole app in your preferred framework",
+                "b": "Explain which template this repo follows, where extension points are, and what must stay unchanged",
+                "c": "Delete the tests and then start coding",
+                "d": "Generate as much code as possible before reading files"
             },
             correct="b"
         ),
         QuizQuestion(
             id="cpl-2",
-            prompt="What should you do before applying Copilot changes broadly?",
+            prompt="How should Claude Code usually be asked to implement work?",
             options={
-                "a": "Apply directly to main",
-                "b": "Create a scratch branch and run tests",
-                "c": "Disable linters",
-                "d": "Remove code owners"
+                "a": "As a small diff in named files with validation commands",
+                "b": "As a brand-new architecture with no constraints",
+                "c": "As direct edits to production without review",
+                "d": "As a single massive patch touching every layer"
             },
-            correct="b"
+            correct="a"
         ),
     ],
     "gpt-claude-integration": [
         QuizQuestion(
             id="gc-1",
-            prompt="When is it better to use GPT/Claude over inline Copilot suggestions?",
+            prompt="Which of the following usually belongs to the fixed part of an approved template architecture?",
             options={
-                "a": "For long-form design or multi-file planning",
-                "b": "For single-line autocompletion only",
-                "c": "When you want to paste secrets",
-                "d": "Never"
+                "a": "The organization&apos;s logging, config, auth, and deployment patterns",
+                "b": "Only the temporary variable names inside one function",
+                "c": "The exact bug fix being implemented this week",
+                "d": "Nothing; Claude Code should redefine the architecture each time"
             },
             correct="a"
         ),
         QuizQuestion(
             id="gc-2",
-            prompt="What should be included in a design prompt for the models?",
+            prompt="Which task should be escalated for human approval instead of handed directly to Claude Code?",
             options={
-                "a": "No constraints to keep it creative",
-                "b": "Explicit stack, patterns, testing, and acceptance criteria",
-                "c": "Only emojis",
-                "d": "Only the file names"
+                "a": "Adding focused tests inside the existing suite",
+                "b": "Editing one handler and its service logic",
+                "c": "Replacing the approved framework and deployment pattern with a new stack",
+                "d": "Updating documentation for an existing extension point"
             },
-            correct="b"
+            correct="c"
         ),
     ],
     "agentic-workflows": [
         QuizQuestion(
             id="ag-1",
-            prompt="What is the recommended order in an agentic workflow?",
+            prompt="What should the planning step identify before Claude Code starts editing?",
             options={
-                "a": "Check → Act → Plan",
-                "b": "Plan → Act → Check",
-                "c": "Act only",
-                "d": "Check only"
+                "a": "The template boundary, safe files to edit, and validation commands",
+                "b": "Only a target number of lines changed",
+                "c": "A new framework to migrate to immediately",
+                "d": "No plan is needed if the task looks small"
             },
-            correct="b"
+            correct="a"
         ),
         QuizQuestion(
             id="ag-2",
-            prompt="Which guardrail is appropriate for agentic coding in VS Code?",
+            prompt="Which workflow order is recommended in this course?",
             options={
-                "a": "Permit unattended file writes",
-                "b": "Require human approval for dependency changes",
-                "c": "Run commands as root by default",
-                "d": "Disable logs for privacy"
+                "a": "Act -> Plan -> Hope",
+                "b": "Plan -> Act -> Check",
+                "c": "Check -> Act -> Plan",
+                "d": "Act only"
             },
             correct="b"
         ),
@@ -139,93 +139,93 @@ QUIZZES: Dict[str, List[QuizQuestion]] = {
     "prompting-for-code": [
         QuizQuestion(
             id="pr-1",
-            prompt="A strong prompt for implementing a function should request:",
+            prompt="A strong Claude Code prompt for feature work should include:",
             options={
-                "a": "Only prose and no code",
-                "b": "Type hints, docstring, input validation, and tests",
-                "c": "Vague ideas without constraints",
-                "d": "Screenshots"
+                "a": "The exact files or extension points, the constraints, and the validation commands",
+                "b": "Only a vague goal and a request to surprise you",
+                "c": "A request to redesign the system however it wants",
+                "d": "No reference to tests or architecture"
             },
-            correct="b"
+            correct="a"
         ),
         QuizQuestion(
             id="pr-2",
-            prompt="When asking for a refactor, which output format improves reviewability?",
+            prompt="If Claude Code cannot tell which template rules apply, what should it do?",
             options={
-                "a": "Unified diff with rationale",
-                "b": "Random file dump",
-                "c": "Binary patch",
-                "d": "Handwritten notes"
+                "a": "Guess and start editing anyway",
+                "b": "Stop and ask for clarification before making architectural assumptions",
+                "c": "Delete unrelated files until the repo is simpler",
+                "d": "Invent a new service boundary"
             },
-            correct="a"
+            correct="b"
         ),
     ],
     "testing-debugging": [
         QuizQuestion(
             id="td-1",
-            prompt="What should you do after the model proposes a fix for a bug?",
+            prompt="What should you do after Claude Code proposes a bug fix?",
             options={
                 "a": "Ship immediately",
-                "b": "Add tests and run the suite",
-                "c": "Delete the logs",
-                "d": "Ignore code review"
+                "b": "Run the relevant tests and review whether the patch stays inside the template conventions",
+                "c": "Disable the linter to avoid noise",
+                "d": "Skip review because the model already checked itself"
             },
             correct="b"
         ),
         QuizQuestion(
             id="td-2",
-            prompt="Which practice strengthens confidence against regressions?",
+            prompt="Which review question best matches this course?",
             options={
-                "a": "Skipping linters",
-                "b": "Property-based tests and edge-case scenarios",
-                "c": "Forbidding CI",
-                "d": "Merging directly to production"
+                "a": "Did the patch preserve the approved architecture and add enough coverage for the change?",
+                "b": "Did the patch maximize the number of files edited?",
+                "c": "Did the patch remove the test harness so future edits are faster?",
+                "d": "Did the patch avoid all comments, logs, and documentation?"
             },
-            correct="b"
+            correct="a"
         ),
     ],
     "security-governance": [
         QuizQuestion(
             id="sec-1",
-            prompt="Which information must not be shared with public AI assistants?",
+            prompt="Why does the course emphasize approved templates from a governance perspective?",
             options={
-                "a": "Open-source license text",
-                "b": "Public API docs",
-                "c": "PII and credentials",
-                "d": "Blog posts"
+                "a": "They reduce cost by eliminating code review",
+                "b": "They inherit known patterns for auth, logging, config, CI, and deployment",
+                "c": "They allow the model to skip reading the codebase",
+                "d": "They make tests optional"
             },
-            correct="c"
+            correct="b"
         ),
         QuizQuestion(
             id="sec-2",
-            prompt="How should you handle license obligations when accepting generated code?",
+            prompt="Which information must still never be shared with a public assistant?",
             options={
-                "a": "Ignore them to move faster",
-                "b": "Ask the model to explain and then validate with legal/policy",
-                "c": "Assume it is always MIT",
-                "d": "Delete attribution files"
+                "a": "PII and credentials",
+                "b": "Published framework documentation",
+                "c": "The project README",
+                "d": "A list of test names"
             },
-            correct="b"
+            correct="a"
         ),
     ],
     "transit-dev-examples": [
         QuizQuestion(
             id="tr-1",
-            prompt="Which is a realistic AI-assisted task for a transit agency?",
+            prompt="Which approach best fits the GTFS example taught here?",
             options={
-                "a": "Generating random ridership numbers",
-                "b": "Building a GTFS validation CLI with tests",
-                "c": "Issuing fines automatically",
-                "d": "Editing labor contracts"
+                "a": "Start from the approved service template and add GTFS validation logic plus tests",
+                "b": "Ask Claude Code to invent a new platform unrelated to current operations",
+                "c": "Skip testing because transit data changes often",
+                "d": "Let the model choose any deployment method it likes"
             },
-            correct="b"
+            correct="a"
         ),
         QuizQuestion(
             id="tr-2",
             prompt="For hardening an operations script, which improvement is most appropriate?",
             options={
                 "a": "Remove error handling",
-                "b": "Add input validation, logging, and tests",
+                "b": "Add input validation, logging, and tests within the approved automation pattern",
                 "c": "Run as admin without checks",
                 "d": "Disable audit logs"
             },
@@ -235,18 +235,18 @@ QUIZZES: Dict[str, List[QuizQuestion]] = {
     "final": [
         QuizQuestion(
             id="final-1",
-            prompt="Which policy is most important when using AI to code at an agency?",
+            prompt="What is the default starting point for production-oriented AI-assisted coding in this course?",
             options={
-                "a": "Paste secrets to improve suggestions",
-                "b": "Prefer enterprise tenants for sensitive data",
-                "c": "Disable code review to save time",
-                "d": "Skip tests if the model wrote the code"
+                "a": "A blank prompt and a blank repo",
+                "b": "The approved template architecture for that class of system",
+                "c": "Whatever framework the model last recommended",
+                "d": "Direct edits to production"
             },
             correct="b"
         ),
         QuizQuestion(
             id="final-2",
-            prompt="What is the agentic sequence recommended here?",
+            prompt="What is the recommended sequence for Claude Code-assisted work?",
             options={
                 "a": "Plan → Act → Check",
                 "b": "Act → Plan → Check",
@@ -268,10 +268,10 @@ QUIZZES: Dict[str, List[QuizQuestion]] = {
         ),
         QuizQuestion(
             id="final-4",
-            prompt="Which practice reduces legal and security risk when accepting generated code?",
+            prompt="Which practice reduces architectural, legal, and security risk when accepting generated code?",
             options={
                 "a": "Ignoring license compatibility",
-                "b": "Validating licenses and scanning dependencies",
+                "b": "Validating licenses and scanning dependencies while staying inside the approved template",
                 "c": "Bundling unknown binaries",
                 "d": "Turning off SCA tools"
             },

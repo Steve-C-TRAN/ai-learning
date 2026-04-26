@@ -44,7 +44,7 @@ def get_modules() -> List[Module]:
                         "<ul class=\"list-disc ml-6\">"
                         "<li>Learn the basic concepts of AI and its applications in business.</li>"
                         "<li>Explore the <strong>AI landscape</strong> and identify key players and technologies.</li>"
-                        "<li>Use <strong>approved tools safely</strong>: avoid PII, review important facts, keep humans in the loop.</li>"
+                        "<li>Use only <strong>IT-approved tools</strong> for work AI tasks; save prompts and outputs for public records.</li>"
                         "<li>Leave with <strong>1–2 ideas to try</strong> explore with your team.</li>"
                         "</ul>"
                         "<p class=\"mt-3 text-slate-300\">Upscale your AI knowledge.</p>"
@@ -69,9 +69,9 @@ def get_modules() -> List[Module]:
                     title="Definitions",
                     content=(
                         "<p><strong>Artificial Intelligence (AI)</strong> is the broad field of making computers perform tasks that typically require human intelligence (reasoning, planning, perception, language).</p>"
-                        "<p><strong>Machine Learning (ML)</strong> is a subset of AI focused on learning patterns from data to make predictions or decisions without being explicitly programmed for every rule.</p>"
-                        "<p><strong>Generative AI</strong> refers to models that can create new content (text, images, audio, code) based on patterns learned from data.</p>"
-                        "<p><strong>Large Language Models (LLMs)</strong> are a type of generative AI trained on vast text corpora to predict the next token, enabling tasks like summarization, Q&A, drafting, and translation.</p>"
+                        "<p class=\"mt-3\"><strong>Machine Learning (ML)</strong> is a subset of AI focused on learning patterns from data to make predictions or decisions without being explicitly programmed for every rule.</p>"
+                        "<p class=\"mt-3\"><strong>Generative AI</strong> refers to models that can create new content (text, images, audio, code) based on patterns learned from data.</p>"
+                        "<p class=\"mt-3\"><strong>Large Language Models (LLMs)</strong> are a type of generative AI trained on vast text corpora to predict the next token, enabling tasks like summarization, Q&A, drafting, and translation.</p>"
                         "<ul class=\"list-disc ml-6 mt-2\">"
                         "</ul>"
                     ),
@@ -91,18 +91,18 @@ def get_modules() -> List[Module]:
                     content="""
                     <ul class="list-disc ml-6 space-y-4">
                       <li>
-                        <strong>Era 1 — Computers Follow Rules (1980s–2010s):</strong>
-                        Early AI worked by following rules that programmers wrote by hand. "If the email contains the word 'winner,' mark it spam." Useful for narrow, predictable tasks — but brittle. Change the rules of the world and the system breaks.
+                        <strong>Era 1: Computers Follow Rules (1980s–2010s):</strong>
+                        Early AI worked by following rules that programmers wrote by hand. "If the email contains the word 'winner,' mark it spam." Useful for narrow, predictable tasks, but brittle. Change the rules of the world and the system breaks.
                         <em class="block mt-1 text-slate-400">Examples: spam filters, credit scoring, fraud detection.</em>
                       </li>
                       <li>
-                        <strong>Era 2 — Computers Learn From Text (2018–2022):</strong>
+                        <strong>Era 2: Computers Learn From Text (2018–2022):</strong>
                         Instead of hand-coded rules, systems learned by reading enormous amounts of text. In 2020, GPT-3 showed that a model trained on enough text could write, reason, and answer questions in a genuinely useful way. This was the moment generative AI became real for everyday use.
                         <em class="block mt-1 text-slate-400">Examples: drafting emails, summarizing documents, answering questions in plain English.</em>
                       </li>
                       <li>
-                        <strong>Era 3 — AI Takes Action (2023–Now):</strong>
-                        Today's models don't just respond to questions — they can break a goal into steps, use tools like search or calendars, and work toward a result with minimal hand-holding. This is called the "agentic" era.
+                        <strong>Era 3: AI Takes Action (2023–Now):</strong>
+                        Today's models don't just respond to questions. They can break a goal into steps, use tools like search or calendars, and work toward a result with minimal hand-holding. This is called the "agentic" era.
                         <em class="block mt-1 text-slate-400">Examples: booking meetings, drafting reports using live data, routing and triaging requests automatically.</em>
                       </li>
                     </ul>
@@ -111,7 +111,7 @@ def get_modules() -> List[Module]:
                 ModuleSection(
                     title="Pioneers Worth Knowing",
                     content="""
-                    <p class="text-slate-400 text-sm">Today’s AI stands on decades of research. <a class="text-cyan-300 underline" href="https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)" target="_blank" rel="noopener">John McCarthy</a> coined the term "Artificial Intelligence" in 1956. <a class="text-cyan-300 underline" href="https://en.wikipedia.org/wiki/Karen_Sp%C3%A4rck_Jones" target="_blank" rel="noopener">Karen Spärck Jones</a> developed foundational ideas in how computers find relevant information — work that underpins modern search and today’s AI retrieval systems.</p>
+                    <p class="text-slate-400 text-sm">Today’s AI stands on decades of research. <a class="text-cyan-300 underline" href="https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)" target="_blank" rel="noopener">John McCarthy</a> coined the term "Artificial Intelligence" in 1956. <a class="text-cyan-300 underline" href="https://en.wikipedia.org/wiki/Karen_Sp%C3%A4rck_Jones" target="_blank" rel="noopener">Karen Spärck Jones</a> developed foundational ideas in how computers find relevant information, work that underpins modern search and today’s AI retrieval systems.</p>
                     """,
                 ),
                 ModuleSection(
@@ -165,7 +165,8 @@ def get_modules() -> List[Module]:
                     title="Pitfalls & Guardrails",
                     content="""
                     <ul class="list-disc ml-6">
-                      <li><strong>Privacy:</strong> Avoid PII in public tools; prefer approved options.</li>
+                      <li><strong>Policy:</strong> Use only IT-approved tools for work AI tasks. Save prompts and AI outputs — they may be subject to public records requests.</li>
+                      <li><strong>Privacy:</strong> Never paste personally identifiable information into an AI tool unless it has been specifically cleared for that data.</li>
                       <li><strong>Hallucinations:</strong> For critical facts, require sources and human review.</li>
                       <li><strong>Brittleness:</strong> Monitor agents; start small and measure impact.</li>
                       <li><strong>Equity & Safety:</strong> Audit outputs for bias; keep safety first.</li>
@@ -183,43 +184,43 @@ def get_modules() -> List[Module]:
         Module(
             slug="llms",
             title="Understanding LLMs",
-            summary="Foundation models, what LLMs are, how they work, where they shine and struggle — plus a quick mental picture.",
+            summary="Foundation models, what LLMs are, how they work, where they shine and struggle, plus a quick mental picture.",
             sections=[
                 ModuleSection(
                     title="You’ve Already Used One",
                     content="""
                     <div class="bg-slate-800/60 border border-emerald-700/40 rounded p-4">
                       <p class="text-emerald-300 font-semibold">Sound familiar?</p>
-                      <p class="mt-1">If you’ve used ChatGPT, you’ve already used an LLM. ChatGPT is built on GPT — a Large Language Model made by OpenAI. Claude, Gemini, and Microsoft Copilot are all LLMs too. They’re the same type of technology, just from different companies with different strengths.</p>
+                      <p class="mt-1">If you’ve used ChatGPT, you’ve already used an LLM. ChatGPT is built on GPT, a Large Language Model made by OpenAI. Claude, Gemini, and Microsoft Copilot are all LLMs too. They’re the same type of technology, just from different companies with different strengths.</p>
                     </div>
                     """,
                 ),
                 ModuleSection(
                     title="What LLMs Are (and Aren’t)",
                     content="""
-                    <p><strong>LLMs</strong> (Large Language Models) are AI systems trained to understand and generate text. They’re remarkably good at drafting, summarizing, translating, and reasoning — as long as you keep their limits in mind.</p>
-                    <ul class="list-disc ml-6 mt-2">
+                    <p><strong>LLMs</strong> (Large Language Models) are AI systems trained to understand and generate text. They’re remarkably good at drafting, summarizing, translating, and reasoning, as long as you keep their limits in mind.</p>
+                    <ul class="list-disc ml-6 mt-3 space-y-2">
                       <li><strong>They are</strong> general language engines you steer with plain-English instructions (called prompts).</li>
-                      <li><strong>They aren’t</strong> search engines or databases of truth — treat outputs as <em>drafts</em> and verify anything important.</li>
+                      <li><strong>They aren’t</strong> search engines or databases of truth. Treat outputs as <em>drafts</em> and verify anything important.</li>
                     </ul>
                     """,
                 ),
                 ModuleSection(
                     title="How They Work (Plain English)",
                     content="""
-                    <ul class="list-disc ml-6">
-                      <li><strong>Tokens:</strong> The model reads text in small chunks called tokens (roughly a word or part of a word). It predicts what should come next, one token at a time — like autocomplete, but far more powerful.</li>
-                      <li><strong>Training:</strong> The model learned by reading enormous amounts of text — books, websites, code. It got good at predicting what comes next in any kind of writing, which turns out to enable a lot of useful things.</li>
+                    <ul class="list-disc ml-6 space-y-3">
+                      <li><strong>Tokens:</strong> The model reads text in small chunks called tokens (roughly a word or part of a word). It predicts what should come next, one token at a time, like autocomplete, but far more powerful.</li>
+                      <li><strong>Training:</strong> The model learned by reading enormous amounts of text: books, websites, code. It got good at predicting what comes next in any kind of writing, which turns out to enable a lot of useful things.</li>
                       <li><strong>Instructions:</strong> It was then taught to follow plain-English instructions, so you can just ask it what you need in natural language.</li>
-                      <li><strong>RAG (Retrieval-Augmented Generation):</strong> You can also give the model your own documents at the time you ask a question. It answers based on your content rather than just its training — great for internal policies, reports, or knowledge bases.</li>
-                      <li><strong>Tool use:</strong> Some models can also search the web, query databases, or take actions — not just answer questions.</li>
+                      <li><strong>RAG (Retrieval-Augmented Generation):</strong> You can also give the model your own documents at the time you ask a question. It answers based on your content rather than just its training. This is great for internal policies, reports, or knowledge bases.</li>
+                      <li><strong>Tool use:</strong> Some models can also search the web, query databases, or take actions, not just answer questions.</li>
                     </ul>
                     """,
                 ),
                 ModuleSection(
                     title="What They’re Great At",
                     content="""
-                    <ul class="list-disc ml-6">
+                    <ul class="list-disc ml-6 space-y-2">
                       <li>Summarizing long material into key points.</li>
                       <li>Drafting emails, reports, job aids, policies (with guidance).</li>
                       <li>Rewriting for tone, length, and audience.</li>
@@ -231,7 +232,7 @@ def get_modules() -> List[Module]:
                 ModuleSection(
                     title="Where They Struggle",
                     content="""
-                    <ul class="list-disc ml-6">
+                    <ul class="list-disc ml-6 space-y-2">
                       <li>Factual accuracy without sources; may <em>hallucinate</em>.</li>
                       <li>Out‑of‑date knowledge unless you add retrieval or tools.</li>
                       <li>Hidden biases from training data; needs oversight.</li>
@@ -254,8 +255,9 @@ def get_modules() -> List[Module]:
                 ),
             ],
             guardrails=[
-                "Avoid sharing PII or sensitive data in public tools.",
-                "Prefer business-approved tools for operational content.",
+                "Use only IT-approved AI tools for work tasks; do not use public consumer tools for operational content.",
+                "Avoid PII in AI tools unless specifically cleared for that data.",
+                "Save your prompts and AI outputs — work-related AI use may be subject to public records requests.",
                 "Verify critical outputs; treat AI responses as drafts, not ground truth.",
             ],
         ),
@@ -397,9 +399,9 @@ def get_modules() -> List[Module]:
                     title="Drafting & Generation (you start, LLM elevates)",
                     content="""
                     <p>Begin with your ideas and context; ask the LLM to produce a clear, audience‑appropriate draft.</p>
-                    <ul class="list-disc ml-6">
-                      <li><em>Use cases:</em> emails, reports, job aids, policy updates, announcements.</li>
-                      <li><em>Process:</em> start with your ideas and drafts + relevant excerpts; ask for structure, clarity, and tone; iterate.</li>
+                    <ul class="list-disc ml-6 space-y-2">
+                      <li><em>Use cases:</em> reports, job aids, policy summaries, announcements, meeting notes, and SOPs.</li>
+                      <li><em>Process:</em> start with your own ideas and any relevant excerpts; ask for structure, clarity, and tone; iterate.</li>
                       <li><em>Formatting:</em> request headings, lists, tables, and consistent style (AP, plain language, etc.).</li>
                     </ul>
                     """,
@@ -415,21 +417,51 @@ def get_modules() -> List[Module]:
                     """,
                 ),
                 ModuleSection(
-                    title="Extraction & Structuring",
+                    title="Working with PDFs and Documents",
                     content="""
-                    <ul class="list-disc ml-6">
-                      <li>Pull fields from emails, PDFs, or notes and output as JSON, CSV, or a table (e.g., dates, routes, contacts).</li>
-                      <li>Normalize names, addresses, or IDs; validate formats with simple rules in the prompt.</li>
-                    </ul>
+                    <div class="bg-slate-800/60 border border-slate-700 rounded p-4">
+                      <p class="text-slate-300 mb-3">Copy text from a PDF and paste it into your AI tool — then tell it exactly what to extract or how to restructure it.</p>
+                      <ul class="list-disc ml-6 space-y-2">
+                        <li><strong>Extract key fields:</strong> Paste a contract or vendor document and ask the AI to pull out dates, parties, payment terms, SLAs, and renewal conditions — returned as a clean table.</li>
+                        <li><strong>PDF to Word:</strong> Copy PDF content and ask the AI to reformat it with proper headings, numbered sections, and clean paragraph structure ready to paste into Word.</li>
+                        <li><strong>Summarize long reports:</strong> Paste sections of a lengthy policy or vendor report and get a concise executive summary with key decisions and action items.</li>
+                        <li><strong>Compare two documents:</strong> Paste two versions of a policy or contract and ask the AI to list what changed, what was added, and what was removed.</li>
+                        <li><strong>Normalize data:</strong> Extract names, route numbers, addresses, or IDs from unstructured text and return them in a consistent, table-ready format.</li>
+                      </ul>
+                      <p class="mt-3 text-slate-400 text-sm"><strong>Tip:</strong> Copy text directly from the PDF rather than uploading a file. Paste only the relevant section and tell the AI exactly what format you need.</p>
+                    </div>
                     """,
                 ),
                 ModuleSection(
-                    title="Analysis & Quick Reports",
+                    title="Analyzing Data",
                     content="""
-                    <ul class="list-disc ml-6">
-                      <li>Ask for patterns and insights from qualitative notes or light tabular data (paste snippets, screenshots, or summaries).</li>
-                      <li>Generate a short narrative with key findings, risks, and recommended next steps.</li>
-                    </ul>
+                    <div class="bg-slate-800/60 border border-slate-700 rounded p-4">
+                      <p class="text-slate-300 mb-3">Paste data snippets, tables, or qualitative notes and ask the AI to find patterns, surface outliers, and generate a narrative you can use directly.</p>
+                      <ul class="list-disc ml-6 space-y-2">
+                        <li><strong>Trend analysis:</strong> Paste ridership numbers or incident logs and ask: "Which routes show consistent decline over the last 3 months? Rank by change and suggest 2–3 questions worth investigating."</li>
+                        <li><strong>Qualitative themes:</strong> Paste complaint logs or operator notes and ask the AI to identify recurring themes, frequency, and a priority ranking.</li>
+                        <li><strong>Outlier detection:</strong> Ask the AI to flag rows that look anomalous based on context you provide.</li>
+                        <li><strong>Narrative from data:</strong> Give the AI a table of numbers and ask for a short paragraph summarizing key findings, risks, and recommended next steps for a team meeting.</li>
+                      </ul>
+                      <p class="mt-3 text-slate-400 text-sm"><strong>Guardrail:</strong> Remove sensitive fields before pasting data. Paste representative samples, not full exports.</p>
+                    </div>
+                    """,
+                ),
+                ModuleSection(
+                    title="Building and Enhancing Excel Files",
+                    content="""
+                    <div class="bg-slate-800/60 border border-slate-700 rounded p-4">
+                      <p class="text-slate-300 mb-3">Describe what you need in plain English and get back formulas, table structures, or automation scripts ready to use.</p>
+                      <ul class="list-disc ml-6 space-y-2">
+                        <li><strong>Generate formulas:</strong> "Sum column B where column A equals 'Route 4'" → get the correct SUMIF, VLOOKUP, or INDEX/MATCH formula with an explanation of how it works.</li>
+                        <li><strong>Build table structures:</strong> Describe your data and get a CSV with headers and sample rows — paste directly into Excel or import as a new sheet.</li>
+                        <li><strong>Pivot table layout:</strong> Describe your data and your question; ask the AI which fields to use as rows, columns, values, and filters.</li>
+                        <li><strong>Conditional formatting rules:</strong> Ask for step-by-step instructions to highlight cells that meet your criteria (e.g., ridership below threshold).</li>
+                        <li><strong>Automate repetitive tasks:</strong> Describe a multi-step task and ask for a VBA macro or Power Query M script — paste into Excel and run.</li>
+                        <li><strong>Enhance existing data:</strong> Paste a messy table and ask the AI to clean column names, standardize formats, add calculated columns, or flag missing values.</li>
+                      </ul>
+                      <p class="mt-3 text-slate-400 text-sm"><strong>Tip:</strong> Always test formulas and macros on a small sample before applying to your full dataset.</p>
+                    </div>
                     """,
                 ),
                 ModuleSection(
@@ -468,7 +500,7 @@ def get_modules() -> List[Module]:
                     title="Customer Experience",
                     content="""
                     <div class="bg-slate-800/60 border border-slate-700 rounded p-4 space-y-2">
-                      <p>Use LLMs to provide faster, clearer answers and consistent information across channels (web, phone, counters) — with human oversight where needed.</p>
+                      <p>Use LLMs to provide faster, clearer answers and consistent information across channels (web, phone, counters), with human oversight where needed.</p>
                       <div class="grid md:grid-cols-2 gap-3">
                         <div>
                           <h4 class="font-semibold">Typical applications</h4>
@@ -508,7 +540,7 @@ def get_modules() -> List[Module]:
                     title="Scheduling Support",
                     content="""
                     <div class="bg-slate-800/60 border border-slate-700 rounded p-4 space-y-2">
-                      <p>Use LLMs to summarize patterns and surface hypotheses from notes and historical summaries — not to replace schedulers.</p>
+                      <p>Use LLMs to summarize patterns and surface hypotheses from notes and historical summaries, not to replace schedulers.</p>
                       <ul class="list-disc ml-6">
                         <li><strong>Pattern insights:</strong> summarize recurring issues from operator notes and incident logs.</li>
                         <li><strong>Scenario narratives:</strong> draft "what‑if" considerations for proposed timetable adjustments.</li>
@@ -536,7 +568,7 @@ def get_modules() -> List[Module]:
                     title="Dive Deeper: Artificial Intelligence in Public Transport (UITP, 2025)",
                     content="""
                     <div class="bg-slate-800/60 border border-slate-700 rounded p-4 space-y-2">
-                      <p>This concise industry report from UITP outlines how public transport agencies are adopting AI — from customer information to operations — and the governance practices that keep rollouts safe and responsible.</p>
+                      <p>This concise industry report from UITP outlines how public transport agencies are adopting AI, from customer information to operations, and the governance practices that keep rollouts safe and responsible.</p>
                       <ul class="list-disc ml-6">
                         <li>Where AI adds value across service and operations.</li>
                         <li>Risks, ethics, data governance, and safety guardrails.</li>
@@ -550,6 +582,8 @@ def get_modules() -> List[Module]:
                 ),
             ],
             guardrails=[
+                "Use only IT-approved AI tools for work tasks.",
+                "Save AI prompts and outputs — work-related AI use may be subject to public records requests.",
                 "Coordinate with union workforce and stakeholders as appropriate.",
                 "Respect data governance, retention, and privacy obligations.",
             ],
@@ -562,7 +596,7 @@ def get_modules() -> List[Module]:
                 ModuleSection(
                     title="Start with a clear task (Role + Goal)",
                     content="""
-                    <ul class="list-disc ml-6">
+                    <ul class="list-disc ml-6 space-y-2">
                       <li><strong>Role:</strong> "You are a communications specialist at a public transit agency."</li>
                       <li><strong>Goal:</strong> "Draft a 150–200 word rider notice about a weekend service change."</li>
                       <li><strong>Audience & tone:</strong> "General riders; plain language; friendly and factual."</li>
@@ -574,7 +608,7 @@ def get_modules() -> List[Module]:
                     title="Give context (paste what matters)",
                     content="""
                     <p>Copy in short, relevant snippets the model should use. Call out what is most important.</p>
-                    <ul class="list-disc ml-6">
+                    <ul class="list-disc ml-6 space-y-2">
                       <li>"Key facts: Route 105 detour Sat–Sun (8am–6pm); stops 5412 and 5414 closed; use stop 5420."</li>
                       <li>"Policy excerpt (quote): ‘Operators must …’ Use this wording where appropriate."</li>
                       <li>"Do <em>not</em> mention internal ticket numbers or staff names."</li>
@@ -585,7 +619,7 @@ def get_modules() -> List[Module]:
                 ModuleSection(
                     title="Set constraints and format",
                     content="""
-                    <ul class="list-disc ml-6">
+                    <ul class="list-disc ml-6 space-y-2">
                       <li><strong>Length:</strong> "150–200 words" or "5 bullets, max 14 words each."</li>
                       <li><strong>Structure:</strong> "Headings: What’s changing, When, Affected stops, Alternatives."</li>
                       <li><strong>Output type:</strong> "Give as a bulleted list" or "Return JSON with keys: title, body, next_steps."</li>
@@ -618,7 +652,7 @@ for maintenance. Please use the south elevator or stairs. We appreciate your pat
                 ModuleSection(
                     title="Ask for a self‑check",
                     content="""
-                    <ul class="list-disc ml-6">
+                    <ul class="list-disc ml-6 space-y-2">
                       <li>"After the draft, list 3 uncertainties or assumptions you made."</li>
                       <li>"Provide a 5‑item checklist I can verify (dates, stops, times, links, approvals)."</li>
                       <li>"Flag anything that might confuse riders."</li>
@@ -628,7 +662,7 @@ for maintenance. Please use the south elevator or stairs. We appreciate your pat
                 ModuleSection(
                     title="Iterate: refine tone and length",
                     content="""
-                    <ul class="list-disc ml-6">
+                    <ul class="list-disc ml-6 space-y-2">
                       <li>"Shorten by ~20% and keep the most important details up front."</li>
                       <li>"Rewrite for plain language (8th‑grade reading level) and remove jargon."</li>
                       <li>"Give a Spanish translation after the English version."</li>
@@ -651,12 +685,12 @@ Process: (1) list sections or questions, (2) draft, (3) self‑check with 3 unce
                 ModuleSection(
                     title="Everyday examples",
                     content="""
-                    <p class="text-slate-400 text-sm mb-3">These patterns work in ChatGPT, Copilot, Claude, or Gemini — not just for transit work.</p>
+                    <p class="text-slate-400 text-sm mb-3">These patterns work in any IT-approved AI tool and apply across many types of work, not just transit.</p>
                     <div class="space-y-4">
                       <div class="bg-slate-800/50 border border-slate-700 rounded p-3">
-                        <h4 class="font-semibold mb-1">Drafting a difficult email</h4>
-                        <p class="text-sm text-slate-300">Instead of: <em>"Write an email about the budget."</em></p>
-                        <p class="text-sm mt-1">Try: <em>"You are a project manager. Draft a 150-word email to a senior director explaining that our project needs a 2-week extension due to a vendor delay. Tone: professional and direct. Include: what changed, why, and our revised timeline."</em></p>
+                        <h4 class="font-semibold mb-1">Analyzing a report or dataset</h4>
+                        <p class="text-sm text-slate-300">Instead of: <em>"What does this data say?"</em></p>
+                        <p class="text-sm mt-1">Try: <em>"You are a transit operations analyst. Review the ridership numbers below and identify: (1) the top 3 trends, (2) any routes with consistent decline over the past 3 months, and (3) two questions worth investigating. Return as 5 bullets for a weekly operations meeting."</em></p>
                       </div>
                       <div class="bg-slate-800/50 border border-slate-700 rounded p-3">
                         <h4 class="font-semibold mb-1">Summarizing a long document</h4>
@@ -689,9 +723,11 @@ Process: (1) list sections or questions, (2) draft, (3) self‑check with 3 unce
                 ModuleSection(
                     title="Safety and good judgment",
                     content="""
-                    <ul class="list-disc ml-6">
-                      <li>Avoid PII in public tools. Use approved options for operational content.</li>
-                      <li>For facts and policies, paste short quotes and ask for citations.</li>
+                    <ul class="list-disc ml-6 space-y-2">
+                      <li><strong>Use only IT-approved tools</strong> for work AI tasks. Do not use public consumer tools for C-TRAN work.</li>
+                      <li><strong>Save your prompts and AI outputs.</strong> Work-related AI use may be subject to public records requests.</li>
+                      <li>Avoid pasting personally identifiable information (names, contact info, rider data) into AI tools unless specifically cleared.</li>
+                      <li>For facts and policies, paste short quotes and ask for citations. Verify before using.</li>
                       <li>Keep humans in the loop for public posts and safety‑critical messages.</li>
                     </ul>
                     """,
@@ -704,15 +740,39 @@ Process: (1) list sections or questions, (2) draft, (3) self‑check with 3 unce
             summary="Try these quick, copy‑paste exercises in any approved AI tool.",
             sections=[
                 ModuleSection(
-                    title="Summarize an email or note",
+                    title="Summarize a document or report",
                     content="""
-                    <p>Objective: Get a clear, short summary with next steps.</p>
-                    <ul class="list-disc ml-6">
-                      <li>Prompt: "Summarize the text below for a coworker. Include 3 bullets and 2 next steps."</li>
-                      <li>Paste your email or note (remove PII).</li>
-                      <li>Ask: "Make it plain language and 120–150 words."</li>
+                    <p>Objective: Get a clear, short summary with key decisions and next steps.</p>
+                    <ul class="list-disc ml-6 space-y-1">
+                      <li>Prompt: "Summarize the text below for a coworker. Include 3 bullets covering the key points and 2 next steps."</li>
+                      <li>Paste a section of a report, policy, or meeting notes (remove PII first).</li>
+                      <li>Follow up: "Now give me a one-sentence version for a status update."</li>
                     </ul>
-                    <p class="text-sm text-slate-400">Where to try: <a class="text-cyan-300 underline" href="https://copilot.microsoft.com" target="_blank" rel="noopener">Microsoft Copilot</a>, <a class="text-cyan-300 underline" href="https://chat.openai.com" target="_blank" rel="noopener">ChatGPT</a>, <a class="text-cyan-300 underline" href="https://claude.ai" target="_blank" rel="noopener">Claude</a>, <a class="text-cyan-300 underline" href="https://gemini.google.com/app" target="_blank" rel="noopener">Gemini</a></p>
+                    <p class="text-sm text-slate-400"><strong>Use your IT-approved AI tool.</strong> Save your prompt and the AI's response as part of your work records.</p>
+                    """,
+                ),
+                ModuleSection(
+                    title="Extract data from a PDF or document",
+                    content="""
+                    <p>Objective: Pull structured information out of unstructured text.</p>
+                    <ul class="list-disc ml-6 space-y-1">
+                      <li>Copy text from a contract, report, or policy PDF (remove any PII or sensitive fields first).</li>
+                      <li>Prompt: "From the text below, extract: (1) key dates, (2) responsible parties, (3) obligations or requirements. Return as a table with columns: Item, Detail."</li>
+                      <li>Follow up: "Now reformat this with proper headings and numbered sections, ready to paste into Word."</li>
+                    </ul>
+                    <p class="text-sm text-slate-400"><strong>Use your IT-approved AI tool.</strong> Save your prompt and the AI's response as part of your work records.</p>
+                    """,
+                ),
+                ModuleSection(
+                    title="Build or enhance an Excel table",
+                    content="""
+                    <p>Objective: Generate formulas, clean data, or create a table structure from scratch.</p>
+                    <ul class="list-disc ml-6 space-y-1">
+                      <li>Describe what you need: "Write an Excel formula that sums column C where column A equals 'Route 4' and column B is after 1/1/2025."</li>
+                      <li>Or paste a messy data snippet and ask: "Clean this table — standardize the date format, fix capitalization in the Name column, and flag any rows with missing values."</li>
+                      <li>Ask for a CSV: "Give me a CSV with headers and 3 sample rows for tracking monthly ridership by route and stop."</li>
+                    </ul>
+                    <p class="text-sm text-slate-400"><strong>Tip:</strong> Test formulas on a small sample first. Use your IT-approved AI tool and save your work records.</p>
                     """,
                 ),
                 ModuleSection(
@@ -736,18 +796,6 @@ Process: (1) list sections or questions, (2) draft, (3) self‑check with 3 unce
                       <li>"Shorten by ~20% and keep key points up top."</li>
                       <li>"Provide a Spanish translation below the English."</li>
                     </ul>
-                    """,
-                ),
-                ModuleSection(
-                    title="Extract key fields to a table",
-                    content="""
-                    <p>Objective: Capture structured info from text.</p>
-                    <ul class="list-disc ml-6">
-                      <li>Prompt: "From the text below, return a CSV with columns: name, route, date, issue."</li>
-                      <li>Paste a short note or form text.</li>
-                      <li>Ask to validate formats (dates, route numbers).</li>
-                    </ul>
-                    <p class="text-sm text-slate-400">Tip: Copy CSV into Excel.</p>
                     """,
                 ),
                 ModuleSection(

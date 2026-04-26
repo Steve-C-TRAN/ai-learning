@@ -86,7 +86,7 @@ QUIZZES: Dict[str, List[QuizQuestion]] = {
                 "d": "An open-source model with no restrictions",
             },
             correct="b",
-            help="For sensitive work content, prioritize enterprise-grade tools with clear data privacy policies — like Microsoft 365 Copilot or Claude for Enterprise."
+            help="For sensitive work content, always use IT-approved tools with clear data privacy and retention policies. Check with IT before using any new AI tool for operational work."
         ),
     ],
     "delivery-models": [
@@ -154,25 +154,27 @@ QUIZZES: Dict[str, List[QuizQuestion]] = {
     "use-foundation-models": [
         QuizQuestion(
             id="use-1",
-            prompt="Which is a common pattern for applying foundation models?",
+            prompt="A staff member copies text from a vendor contract PDF and asks an AI tool to extract the start date, end date, payment terms, and SLA penalties into a table. Which AI pattern does this describe?",
             options={
-                "a": "Manual rule entry for every scenario",
-                "b": "Summarization and Q&A over documents",
-                "c": "Only image generation",
-                "d": "Only spreadsheet formulas"
+                "a": "Drafting and generation",
+                "b": "Transformation and rewrite",
+                "c": "Extraction and structuring",
+                "d": "Classification and routing"
             },
-            correct="b"
+            correct="c",
+            help="Extraction and structuring means pulling specific fields out of unstructured text and returning them in a clean, usable format — like a table or CSV."
         ),
         QuizQuestion(
             id="use-2",
-            prompt="Which task fits 'classification & routing'?",
+            prompt="You describe what you need in plain English — 'sum column B where column A says Route 4' — and the AI returns the correct Excel SUMIF formula. What makes this approach work?",
             options={
-                "a": "Adding watermarks to images",
-                "b": "Tagging tickets and triaging requests",
-                "c": "Encrypting databases",
-                "d": "Rendering video"
+                "a": "The AI has direct access to your spreadsheet",
+                "b": "You gave it a specific, plain-language description of the logic you needed",
+                "c": "Excel formulas are pre-programmed into every AI model",
+                "d": "You used the right keyword to trigger formula mode"
             },
-            correct="b"
+            correct="b",
+            help="Plain-English descriptions of logic are one of AI's most practical uses for spreadsheet work. The more specific you are about the condition and the output, the more accurate the formula."
         ),
     ],
     "ai-in-it": [
@@ -214,15 +216,15 @@ QUIZZES: Dict[str, List[QuizQuestion]] = {
         ),
         QuizQuestion(
             id="transit-2",
-            prompt="You’re using ChatGPT at work and want to paste in a rider complaint that includes their name, phone number, and address. Should you?",
+            prompt="You’re drafting a response to a rider complaint using your IT-approved AI tool. The complaint includes the rider’s name, address, and phone number. What do you do first?",
             options={
-                "a": "Yes — more detail helps the AI give better answers",
-                "b": "Only if it’s a work computer",
-                "c": "No — remove personal information before pasting into any public AI tool",
-                "d": "Yes — ChatGPT encrypts and deletes everything automatically"
+                "a": "Include all the details so the AI can personalize the response",
+                "b": "Remove the personal information before pasting anything into the AI tool",
+                "c": "It’s fine as long as the tool is IT-approved",
+                "d": "Submit an IT help ticket before using AI for any rider communications"
             },
-            correct="c",
-            help="Avoid pasting personally identifiable information (PII) into public AI tools. Remove names, addresses, and contact details before using AI to help draft a response."
+            correct="b",
+            help="Even IT-approved tools should not receive personally identifiable information (PII) unless specifically cleared for it. Remove names, addresses, and contact details before using AI to help draft responses."
         ),
         QuizQuestion(
             id="transit-3",
@@ -240,7 +242,7 @@ QUIZZES: Dict[str, List[QuizQuestion]] = {
     "prompting-basics": [
         QuizQuestion(
             id="prompt-1",
-            prompt="Which practice generally gets better results from AI tools like ChatGPT?",
+            prompt="Which practice generally gets better results from your IT-approved AI tool?",
             options={
                 "a": "Keeping prompts as short as possible",
                 "b": "Clearly stating the role, goal, audience, and format you want",
@@ -252,15 +254,15 @@ QUIZZES: Dict[str, List[QuizQuestion]] = {
         ),
         QuizQuestion(
             id="prompt-2",
-            prompt="You want the AI to write a formal email to a senior leader. What's the most important thing to include in your prompt?",
+            prompt="You paste ridership data into your IT-approved AI tool and ask it to 'find trends.' The response is vague and unhelpful. What should you add to your prompt?",
             options={
-                "a": "Your login credentials",
-                "b": "The role, goal, audience, tone, and key facts",
-                "c": "As many keywords as possible",
-                "d": "The full history of your organization"
+                "a": "Your system credentials so the AI can pull the full dataset directly",
+                "b": "Specific questions to answer, the timeframe to focus on, and the output format you need",
+                "c": "More raw data — the AI needs the complete export to find trends",
+                "d": "A request to make the response longer and more detailed"
             },
             correct="b",
-            help="Specifying role, goal, audience, tone, and key facts gives the model the context it needs to produce a useful draft on the first try."
+            help="'Find trends' is too vague. Tell the AI what to look for (e.g., routes with declining ridership), over what period, and what format the output should take — like 5 bullets for a weekly operations meeting."
         ),
         QuizQuestion(
             id="prompt-3",
@@ -291,63 +293,75 @@ QUIZZES: Dict[str, List[QuizQuestion]] = {
     "final": [
         QuizQuestion(
             id="final-1",
-            prompt="Which is the right approach when using public AI tools like ChatGPT for work tasks?",
+            prompt="You used your IT-approved AI tool to help draft a memo about a service change. What should you do with the prompt you entered and the AI's response?",
             options={
-                "a": "Include rider names and addresses so the AI can personalize responses",
-                "b": "Avoid pasting PII or sensitive data; use business-approved tools for operational content",
-                "c": "Share internal passwords to give the AI access to your systems",
-                "d": "Skip human review since AI output is reliable enough for public posts"
+                "a": "Delete them once the memo is final — they were just working notes",
+                "b": "Keep them private so the public can't see your working process",
+                "c": "Save them as part of your work records — they may be subject to public records requests",
+                "d": "Only save them if your supervisor specifically asks"
             },
-            correct="b",
-            help="Public AI tools are not a secure environment for sensitive data. Remove PII before using them, and use approved enterprise tools when the work involves confidential content."
+            correct="c",
+            help="AI-assisted work at a public agency can be subject to public records laws. Save your prompts and AI outputs just like any other work document."
+        ),
+        QuizQuestion(
+            id="final-2",
+            prompt="A coworker wants to paste a rider complaint — including the rider's name, address, and phone number — into a public AI chatbot to help draft a response. What's the right guidance?",
+            options={
+                "a": "It's fine as long as they delete the conversation afterward",
+                "b": "Only do it from a work computer on the VPN",
+                "c": "Remove the personal information and use an IT-approved tool instead",
+                "d": "Avoid using AI for anything involving rider information"
+            },
+            correct="c",
+            help="C-TRAN policy requires using IT-approved tools for work AI tasks. Personally identifiable information should be removed before using any AI tool, unless it has been specifically cleared for that data."
         ),
         QuizQuestion(
             id="final-3",
-            prompt="Which of these is AI currently best suited to help with at work?",
+            prompt="You ask AI to summarize a city policy document. The summary sounds authoritative, but one detail doesn't match what you remember reading. What should you do?",
             options={
-                "a": "Making final decisions on safety-critical operations without human review",
-                "b": "Drafting, summarizing, and rewriting content for a human to review and finalize",
-                "c": "Running your department without any oversight",
-                "d": "Guaranteeing factual accuracy in all outputs"
+                "a": "Trust the AI — it has read more documents than any person",
+                "b": "Correct just that one detail and use the rest of the summary as-is",
+                "c": "Verify the full summary against the source — if one fact is wrong, others may be too",
+                "d": "Ask the AI to re-read the document and try again"
             },
-            correct="b",
-            help="AI excels at drafting and summarizing — with humans in the loop to verify and finalize. It should augment judgment, not replace it."
+            correct="c",
+            help="LLMs can hallucinate — confidently state things that are not true. If one fact is off, treat the entire output with skepticism and verify against your source material."
         ),
         QuizQuestion(
             id="final-4",
-            prompt="Which task fits the 'classification and routing' pattern?",
+            prompt="Incoming rider emails are automatically tagged as 'fares,' 'accessibility,' or 'schedule complaint' and routed to the right team. Which AI pattern does this describe?",
             options={
-                "a": "Drafting a press release",
-                "b": "Tagging and triaging incoming requests by category and urgency",
-                "c": "Rendering 3D graphics",
-                "d": "Designing a new bus route"
+                "a": "Summarization and Q&A",
+                "b": "Drafting and generation",
+                "c": "Classification and routing",
+                "d": "Retrieval-Augmented Generation (RAG)"
             },
-            correct="b",
-            help="Classification and routing means labeling or sorting inputs — like tagging a support ticket as 'fares / high urgency' so it reaches the right team."
+            correct="c",
+            help="Classification and routing means labeling and sorting inputs — a great fit for triaging incoming messages so they reach the right person faster."
         ),
         QuizQuestion(
             id="final-5",
-            prompt="An AI gives you a response that sounds completely confident but contains a fact you know is wrong. What should you do?",
+            prompt="Your department is piloting AI to auto-post service alerts to social media the moment an incident is logged — no human review before posting. What's the key risk?",
             options={
-                "a": "Trust it — AI models don't make things up",
-                "b": "Use it anyway since the rest is probably correct",
-                "c": "Correct the error, verify the surrounding facts, and treat the whole output as a draft",
-                "d": "Report a bug to the AI company"
+                "a": "The posts might not match the agency's visual branding",
+                "b": "The AI could publish inaccurate or premature alerts before anyone can catch and correct them",
+                "c": "Riders might receive information faster than they expect",
+                "d": "AI tools are generally not permitted to access social media platforms"
             },
-            correct="c",
-            help="Hallucination is a known LLM limitation. If one fact is wrong, others may be too. Always treat AI output as a draft and verify anything consequential."
+            correct="b",
+            help="Human review is essential before anything goes public. AI drafts, humans approve — especially for safety- or operations-related communications."
         ),
         QuizQuestion(
             id="final-6",
-            prompt="What is the most important habit when using AI for work tasks?",
+            prompt="You ask an AI to 'help with the Route 4 update' and get a vague, generic response. What's the most likely reason?",
             options={
-                "a": "Use the most expensive model available",
-                "b": "Keep humans in the loop — review outputs before acting or publishing",
-                "c": "Always use AI without editing so you get the 'true' answer",
-                "d": "Avoid telling coworkers you used AI"
+                "a": "AI tools can't handle transit-specific topics",
+                "b": "Route 4 isn't in the AI's training data",
+                "c": "The prompt lacked role, audience, key facts, and format",
+                "d": "You need a higher-tier AI subscription for operational tasks"
             },
-            correct="b",
-            help="Human oversight is the core guardrail. AI is a powerful assistant, but you are responsible for what goes out the door."
+            correct="c",
+            help="Vague prompts get vague answers. Give the AI a clear role, the audience it's writing for, the key facts it needs, and the format you want — and results will be much more useful."
         ),
     ],
 }
